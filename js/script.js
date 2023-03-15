@@ -1,9 +1,7 @@
-const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
-
 const lilian = {
-    pic: "",
-    lastName: "",
-    firstName: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    lastName: "BATAILLE",
+    firstName: "Lilian",
     age: 0,
     bio: [],
     softSkills: [],
@@ -17,7 +15,7 @@ const lilian = {
 };
 
 const marco = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "BERGER",
     firstName: "Marc-Antoine",
     age: 24,
@@ -33,7 +31,7 @@ const marco = {
 };
 
 const françois = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "CHAVALLARD",
     firstName: "François",
     age: 35,
@@ -49,7 +47,7 @@ const françois = {
 };
 
 const lucie = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "CHEVANCHE",
     firstName: "Lucie",
     age: 35,
@@ -65,7 +63,7 @@ const lucie = {
 };
 
 const aurelie = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "DEMURE",
     firstName: "Aurélie",
     age: 44,
@@ -81,7 +79,7 @@ const aurelie = {
 };
 
 const anthony = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "DISCOURS",
     firstName: "Anthony",
     age: 25,
@@ -97,7 +95,7 @@ const anthony = {
 };
 
 const vanessa = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "GIRAUD",
     firstName: "Vanessa",
     age: 35,
@@ -113,9 +111,9 @@ const vanessa = {
 };
 
 const marcelo = {
-    pic: "",
-    lastName: "",
-    firstName: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    lastName: "HENRIQUE DA SILVA",
+    firstName: "Marcelo",
     age: 0,
     bio: [],
     softSkills: [],
@@ -129,7 +127,7 @@ const marcelo = {
 };
 
 const guillaume = {
-    pic: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "LAMOUREC",
     firstName: "Guillaume",
     age: 26,
@@ -145,9 +143,9 @@ const guillaume = {
 };
 
 const jawad = {
-    pic: "",
-    lastName: "",
-    firstName: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    lastName: "MESSAOUDENE",
+    firstName: "Jawad",
     age: 0,
     bio: [],
     softSkills: [],
@@ -177,9 +175,9 @@ const vivian = {
 };
 
 const yann = {
-    pic: "",
-    lastName: "",
-    firstName: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    lastName: "RICHARD",
+    firstName: "Yann",
     age: 0,
     bio: [],
     softSkills: [],
@@ -193,9 +191,9 @@ const yann = {
 };
 
 const pierre = {
-    pic: "",
-    lastName: "",
-    firstName: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    lastName: "SAUMONT",
+    firstName: "Pierre",
     age: 0,
     bio: [],
     softSkills: [],
@@ -209,9 +207,9 @@ const pierre = {
 };
 
 const teodor = {
-    pic: "",
-    lastName: "",
-    firstName: "",
+    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    lastName: "ZEKHOV",
+    firstName: "Teodor",
     age: 0,
     bio: [],
     softSkills: [],
@@ -222,4 +220,24 @@ const teodor = {
     gitHub: "https://github.com/teodor-zhekov",
     linkedIn: "",
     mail: "",
+}
+
+const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
+
+let trombinoscope = document.getElementById("trombinoscope");
+
+for (let wilder of wilders) {
+    console.log(wilder);
+    console.log(wilder.firstName);
+
+    let newWilder = document.createElement("div");
+    newWilder.classList.add('wilderCard');
+    newWilder.setAttribute('id', wilder.firstName);
+    trombinoscope.appendChild(newWilder);
+
+    let trombiPic = document.createElement("img");
+    trombiPic.classList.add("wilderPic");
+    trombiPic.setAttribute("id", wilder.firstName + "trombipic")
+    trombiPic.src = wilder.pic;
+    newWilder.appendChild(trombiPic);
 }
