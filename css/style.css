@@ -1,0 +1,14 @@
+/* PAGE DE PROFIL */
+
+.profilePage {
+    width: 100%;
+    background-color: #F8EEE1;
+}
+
+.bio {
+    list-style-type: none;
+}
+
+.softSkills {
+    list-style-type: none;
+}

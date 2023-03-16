@@ -1,3 +1,5 @@
+// Objets contenant tous les éléments des wilders à afficher sur leur profil.
+
 const lilian = {
     pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
     lastName: "BATAILLE",
@@ -222,13 +224,16 @@ const teodor = {
     mail: "",
 }
 
+
+// Array contenant tous les objets des wilders, classés par ordre alphabétique.
 const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
+
 
 let trombinoscope = document.getElementById("trombinoscope");
 
+
+//Cette boucle crée dynamiquement toutes les div des wilders au chargement de la page.
 for (let wilder of wilders) {
-    console.log(wilder);
-    console.log(wilder.firstName);
 
     let newWilder = document.createElement("div");
     newWilder.classList.add('wilderCard');
@@ -240,4 +245,50 @@ for (let wilder of wilders) {
     trombiPic.setAttribute("id", wilder.firstName + "trombipic")
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
+
+    //création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué.
+
+    newWilder.addEventListener("click", createProfilePage);
+
+    function createProfilePage() {
+        let profilePage = document.createElement("div");
+        profilePage.setAttribute("id", "profile" + wilder.firstName);
+        profilePage.classList.add("profilePage");
+        document.body.appendChild(profilePage);
+
+        let profilePic = trombiPic.cloneNode();
+        profilePic.setAttribute("id", wilder.firstName + "profilepic");
+        profilePage.appendChild(profilePic);
+
+        let wildersName = document.createElement("h1");
+        wildersName.innerText = `${wilder.firstName} ${wilder.lastName}`;
+        profilePage.appendChild(wildersName);
+
+        let wildersAge = document.createElement("p");
+        wildersAge.innerText = wilder.age;
+        profilePage.appendChild(wildersAge);
+
+        let wildersBio = document.createElement("ul");
+        wildersBio.classList.add("bio");
+        for (let i = 0; i < wilder.bio.length; i++) {
+            let bioPart = document.createElement("li");
+            bioPart.innerText = wilder.bio[i];
+            wildersBio.appendChild(bioPart);
+        }
+        profilePage.appendChild(wildersBio);
+
+        let wildersSoftSkills = document.createElement("ul");
+        wildersSoftSkills.classList.add("softSkills");
+        for (let i = 0; i < wilder.softSkills.length; i++) {
+            let softSkillsPart = document.createElement("li");
+            softSkillsPart.innerText = wilder.softSkills[i];
+            wildersSoftSkills.appendChild(softSkillsPart);
+        }
+        profilePage.appendChild(wildersSoftSkills);
+
+        // let wildersHardSkills = document.createElement("div");
+        // for (let i = 0; i < wilder.hardSkills.length; i++) {
+        // }
+    }
 }
+
