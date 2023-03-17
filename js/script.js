@@ -90,8 +90,8 @@ const anthony = {
     projects: [],
     objectives: "Alternance.",
     gitHub: "https://github.com/anthonydscrs",
-    linkedIn: "",
-    mail: "",
+    linkedIn: "https://www.linkedin.com/in/anthony-discours/",
+    mail: "andiscours@laposte.net",
 };
 
 const vanessa = {
