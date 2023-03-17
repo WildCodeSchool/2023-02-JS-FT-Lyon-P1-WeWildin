@@ -100,11 +100,11 @@ const vanessa = {
     firstName: "Vanessa",
     age: 35,
     bio: ["Assistante médicale depuis 2009 dans un centre de lutte contre le cancer.", "Management d'une équipe de 9 AM pendant 3 ans.", "Février 2023 : début WCS"],
-    softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Patience", "Créativité"],
+    softSkills: ["Autonomie et capacité d’adaptation", "Organisation", "Esprit d’équipe et communication", "Patience", "Créativité"],
     hardSkills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     resonsWhyDev: "J'ai toujours été attirée par la tech et le dev web pour la résolution des problèmes et la créativité.",
     projects: "",
-    objectives: "Stage après la formation avec la WCS et à long terme une alternance pour concepteur d'application web.",
+    objectives: "Stage après la formation avec la WCS et à long terme une alternance pour devenir concepteur d'application web.",
     gitHub: "https://github.com/VanessaGrd",
     linkedIn: "",
     mail: "",
@@ -227,9 +227,6 @@ const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, mar
 let trombinoscope = document.getElementById("trombinoscope");
 
 for (let wilder of wilders) {
-    console.log(wilder);
-    console.log(wilder.firstName);
-
     let newWilder = document.createElement("div");
     newWilder.classList.add('wilderCard');
     newWilder.setAttribute('id', wilder.firstName);
