@@ -1,5 +1,5 @@
 const lilian = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Lilian.png",
     lastName: "BATAILLE",
     firstName: "Lilian",
     age: 0,
@@ -15,7 +15,7 @@ const lilian = {
 };
 
 const marco = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Marco.png",
     lastName: "BERGER",
     firstName: "Marc-Antoine",
     age: 24,
@@ -31,7 +31,7 @@ const marco = {
 };
 
 const françois = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Francois.png",
     lastName: "CHAVALLARD",
     firstName: "François",
     age: 35,
@@ -47,7 +47,7 @@ const françois = {
 };
 
 const lucie = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Lucie.png",
     lastName: "CHEVANCHE",
     firstName: "Lucie",
     age: 35,
@@ -63,7 +63,7 @@ const lucie = {
 };
 
 const aurelie = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Aurelie.png",
     lastName: "DEMURE",
     firstName: "Aurélie",
     age: 44,
@@ -79,7 +79,7 @@ const aurelie = {
 };
 
 const anthony = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Anthony.png",
     lastName: "DISCOURS",
     firstName: "Anthony",
     age: 25,
@@ -95,7 +95,7 @@ const anthony = {
 };
 
 const vanessa = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Vanessa.png",
     lastName: "GIRAUD",
     firstName: "Vanessa",
     age: 35,
@@ -111,7 +111,7 @@ const vanessa = {
 };
 
 const marcelo = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Marcelo.png",
     lastName: "HENRIQUE DA SILVA",
     firstName: "Marcelo",
     age: 0,
@@ -127,7 +127,7 @@ const marcelo = {
 };
 
 const guillaume = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Guillaume.png",
     lastName: "LAMOUREC",
     firstName: "Guillaume",
     age: 26,
@@ -143,7 +143,7 @@ const guillaume = {
 };
 
 const jawad = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Jawad.png",
     lastName: "MESSAOUDENE",
     firstName: "Jawad",
     age: 0,
@@ -159,7 +159,7 @@ const jawad = {
 };
 
 const vivian = {
-    pic: "",
+    pic: "assets/Vivian.png",
     lastName: "QUERENET",
     firstName: "Vivian",
     age: 29,
@@ -175,7 +175,7 @@ const vivian = {
 };
 
 const yann = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Yann.png",
     lastName: "RICHARD",
     firstName: "Yann",
     age: 0,
@@ -191,7 +191,7 @@ const yann = {
 };
 
 const pierre = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Pierre.png",
     lastName: "SAUMONT",
     firstName: "Pierre",
     age: 0,
@@ -204,10 +204,9 @@ const pierre = {
     gitHub: "https://github.com/Ropie1981",
     linkedIn: "",
     mail: "",
-};
-
+}
 const teodor = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Teodor.png",
     lastName: "ZEKHOV",
     firstName: "Teodor",
     age: 0,
@@ -221,6 +220,7 @@ const teodor = {
     linkedIn: "",
     mail: "",
 }
+
 
 const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
 
