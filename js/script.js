@@ -9,7 +9,7 @@ const lilian = {
     softSkills: [],
     hardSkills: [],
     resonsWhyDev: "",
-    projects: "",
+    projects: [],
     objectives: "",
     gitHub: "https://github.com/B-lilian",
     linkedIn: "",
@@ -26,7 +26,7 @@ const marco = {
     hardSkills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     resonsWhyDev: "Reconversion : J'ai découvert le dev par hasard et j'ai tout de suite accroché. Je me suis lancé dans le dev web pour avoir un travail que j'aime, dans lequel je suis épanoui et qui me donne plus de libertés.",
     objectives: "J'aimerais poursuivre ma formation par une alternance à la Wild afin de m'insérer dans le marché du dev avec déjà une expérience en poche et des compétences plus avancés.",
-    projects: "",
+    projects: [],
     gitHub: "https://github.com/HazeFury",
     linkedIn: "",
     mail: "",
@@ -41,7 +41,7 @@ const françois = {
     softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Logique", "Pensée critique"],
     hardSkills: ["HTML", "CSS", "JavaScript", "Python", "React", "Node.js"],
     resonsWhyDev: "J'avais le projet d'une reconversion professionnelle, et j'ai été attiré par ce domaine pour son aspect technique, mais aussi pour les possibilités de création et les diverses carrières qu'il propose.",
-    projects: "https://github.com/Yukitaori/Mastermind",
+    projects: ["https://github.com/Yukitaori/Mastermind"],
     objectives: "Dans l'immédiat, je viserais plutôt une alternance pour une formation de Concepteur Développeur d'Application. Mais qui sait de quoi demain sera fait ?",
     gitHub: "https://github.com/Yukitaori",
     linkedIn: "",
@@ -57,7 +57,7 @@ const lucie = {
     softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Logique", "Patience"],
     hardSkills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     resonsWhyDev: "Parce que je suis attirée depuis toujours par l'informatique sans avoir suivi cette voie et parce que cela correspond beaucoup plus à ma vie actuelle.",
-    projects: "",
+    projects: [],
     objectives: "Peut-être alternance d'un an pour consolider cette formation.",
     gitHub: "https://github.com/LucieChev",
     linkedIn: "",
@@ -73,7 +73,7 @@ const aurelie = {
     softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Patience", "Ouverture d’esprit"],
     hardSkills: ["HTML", "CSS", "JavaScript", "Python", "React", "Node.js"],
     resonsWhyDev: "Par curiosité au départ, puis par passion.",
-    projects: "",
+    projects: [],
     objectives: "Recherche d'une alternance pour préparer le titre de concepteur développeur d'applications.",
     gitHub: "https://github.com/lilipix",
     linkedIn: "",
@@ -81,7 +81,7 @@ const aurelie = {
 };
 
 const anthony = {
-    pic: "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
+    pic: "assets/Anthony.png",
     lastName: "DISCOURS",
     firstName: "Anthony",
     age: 25,
@@ -89,7 +89,7 @@ const anthony = {
     softSkills: ["Autonomie et capacité d’adaptation", "Etre pro-actif", "Esprit d’équipe et communication", "Flexibilité cognitive", "Ouverture d’esprit"],
     hardSkills: ["HTML", "CSS", "JavaScript", "PHP"],
     resonsWhyDev: "Parce que.",
-    projects: "",
+    projects: [],
     objectives: "Alternance.",
     gitHub: "https://github.com/anthonydscrs",
     linkedIn: "",
@@ -105,7 +105,7 @@ const vanessa = {
     softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Patience", "Créativité"],
     hardSkills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     resonsWhyDev: "J'ai toujours été attirée par la tech et le dev web pour la résolution des problèmes et la créativité.",
-    projects: "",
+    projects: [],
     objectives: "Stage après la formation avec la WCS et à long terme une alternance pour concepteur d'application web.",
     gitHub: "https://github.com/VanessaGrd",
     linkedIn: "",
@@ -121,7 +121,7 @@ const marcelo = {
     softSkills: [],
     hardSkills: [],
     resonsWhyDev: "",
-    projects: "",
+    projects: [],
     objectives: "",
     gitHub: "https://github.com/marceloxhenrique",
     linkedIn: "",
@@ -137,7 +137,7 @@ const guillaume = {
     softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Patience", "Ouverture d’esprit", "Créativité"],
     hardSkills: ["HTLM", "CSS", "JavaScript"],
     resonsWhyDev: "Parce que ça avait l'air sympa et que j'aime bosser avec les ordis et le monde du numérique.",
-    projects: "",
+    projects: [],
     objectives: "Stage / alternance avec la Wild dans une formation spécialisante.",
     gitHub: "https://github.com/Wraethh",
     linkedIn: "",
@@ -153,7 +153,7 @@ const jawad = {
     softSkills: [],
     hardSkills: [],
     resonsWhyDev: "",
-    projects: "",
+    projects: [],
     objectives: "",
     gitHub: "https://github.com/Nineball69",
     linkedIn: "",
@@ -169,7 +169,7 @@ const vivian = {
     softSkills: ["Autonomie et capacité d’adaptation", "Logique", "Pensée critique", "Patience", "Créativité"],
     hardSkills: ["HTML", "CSS", "Javascript"],
     resonsWhyDev: "J'aime l'apprentissage des langues et ai toujours eu un attrait pour la tech. J'aimais la créativité de mes anciens métiers mais ce n'était pas assez technique pour moi. J'aime la résolution de problème.",
-    projects: "",
+    projects: [],
     objectives: "Pour l'instant j'envisage l'alternance pour monter encore plus en compétence avant de totalement me lancer dans le milieu pro.",
     gitHub: "https://github.com/LightQv",
     linkedIn: "",
@@ -185,7 +185,7 @@ const yann = {
     softSkills: [],
     hardSkills: [],
     resonsWhyDev: "",
-    projects: "",
+    projects: [],
     objectives: "",
     gitHub: "https://github.com/LocoBajo",
     linkedIn: "",
@@ -201,7 +201,7 @@ const pierre = {
     softSkills: [],
     hardSkills: [],
     resonsWhyDev: "",
-    projects: "",
+    projects: [],
     objectives: "",
     gitHub: "https://github.com/Ropie1981",
     linkedIn: "",
@@ -217,7 +217,7 @@ const teodor = {
     softSkills: [],
     hardSkills: [],
     resonsWhyDev: "",
-    projects: "",
+    projects: [],
     objectives: "",
     gitHub: "https://github.com/teodor-zhekov",
     linkedIn: "",
@@ -233,6 +233,7 @@ let trombinoscope = document.getElementById("trombinoscope");
 
 
 //Cette boucle crée dynamiquement toutes les div des wilders au chargement de la page.
+
 for (let wilder of wilders) {
 
     let newWilder = document.createElement("div");
@@ -246,7 +247,7 @@ for (let wilder of wilders) {
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
 
-    //création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué.
+    //création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
 
     newWilder.addEventListener("click", createProfilePage);
 
@@ -256,15 +257,30 @@ for (let wilder of wilders) {
         profilePage.classList.add("profilePage");
         document.body.appendChild(profilePage);
 
+        let closeButton = document.createElement("div");
+        closeButton.classList.add("closeButton");
+        closeButton.addEventListener("click", function () {
+            profilePage.remove();
+        });
+        profilePage.appendChild(closeButton);
+
+        let profilePicBox = document.createElement("div");
+        profilePicBox.classList.add("profilePicBox");
+        profilePage.appendChild(profilePicBox);
+
+
         let profilePic = trombiPic.cloneNode();
+        profilePic.classList.add("profilePic");
         profilePic.setAttribute("id", wilder.firstName + "profilepic");
-        profilePage.appendChild(profilePic);
+        profilePicBox.appendChild(profilePic);
 
         let wildersName = document.createElement("h1");
+        wildersName.classList.add("profileName");
         wildersName.innerText = `${wilder.firstName} ${wilder.lastName}`;
         profilePage.appendChild(wildersName);
 
         let wildersAge = document.createElement("p");
+        wildersAge.classList.add("age");
         wildersAge.innerText = wilder.age;
         profilePage.appendChild(wildersAge);
 
@@ -289,6 +305,20 @@ for (let wilder of wilders) {
         // let wildersHardSkills = document.createElement("div");
         // for (let i = 0; i < wilder.hardSkills.length; i++) {
         // }
+
+        let whyDev = document.createElement("p");
+        whyDev.classList.add("whyDev");
+        whyDev.innerText = wilder.resonsWhyDev;
+        profilePage.appendChild(whyDev);
+
+        let projects = document.createElement("ul");
+        projects.classList.add("projects");
+        for (let i = 0; i < wilder.projects.length; i++) {
+            let newProject = document.createElement("li");
+            newProject.classList.add("projectLine");
+            newProject.innerHTML = `<a href = "${wilder.projects[i]}"> Projet ${i + 1}</a>`
+            projects.appendChild(newProject);
+        }
+        profilePage.appendChild(projects);
     }
 }
-
