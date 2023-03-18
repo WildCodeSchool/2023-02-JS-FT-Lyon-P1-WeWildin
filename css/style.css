@@ -1,10 +1,14 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #273E47;
 }
 
 body {
+  z-index: 1;
   line-height: 1.5;
-  margin: 0;
   background-color: #F8EEE1;
 }
 
@@ -21,7 +25,6 @@ header {
   flex-direction: row;
   justify-content: space-between;
   background-color: #FBB04C;
-
 }
 
 h1 {
@@ -104,74 +107,162 @@ nav ul li a {
   padding-right: 1rem;
 }
 
+
+
+
 /* PAGE DE PROFIL */
 
 .profilePage {
   z-index: 2;
-  /* position: absolute; */
-  top: 0px;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  width: 100vw;
+  overflow: auto;
   background-color: #F8EEE1;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 1px solid black;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .closeButton {
+  line-height: 1;
   position: absolute;
+  z-index: 3;
   right: 0px;
-  grid-area: 1 / 3 / 2 / 4;
-  background-color: black;
-  width: 60px;
+  /* width: 60px;
   height: 60px;
+  opacity: 0.5; */
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #273E47;
+  border: none;
+  background-color: #1fe0;
+  font-size: 2em;
+  border: 1px solid black;
 }
 
+.profileDivTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-around;
+  flex-wrap: nowrap;
+}
 
 .profilePicBox {
-  padding: 20px;
+  width: 40vw;
+  height: 35vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  grid-area: 1 / 1 / 2 / 2;
-  border: 1px solid black;
-  background-color: grey;
+  align-items: flex-end;
+  background-color: #FBB04C;
+  border-radius: 0px 0px 10px 0px;
+  box-shadow: 2px 2px 30px black;
+}
+
+.profilePicBox:hover {
+  background-color: #273E47;
+}
+
+.profilePic {
+  object-fit: contain;
+  /* overflow: hidden; */
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.softSkills {
+  list-style-type: square;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1em;
+  padding: 3em 1em 1em 1em;
+  width: 50vw;
+  height: 35vh;
+}
+
+.profileDivMiddle {
+  padding: 1em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.profilePage h1 {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 .profileName {
-  grid-area: 2 / 1 / 3 / 2;
-  border: 1px solid black;
+  width: 40vw;
+  font-weight: bold;
 }
 
 .age {
-  grid-area: 2 / 2 / 3 / 3;
-  border: 1px solid black;
+  text-align: center;
+  margin: auto;
+  width: 40vw;
+  font-weight: bold;
+}
+
+.hardSkills {
+  padding: 1em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  list-style-type: none;
+}
+
+.JSIcon svg {
+  width: 64px;
+  height: 64px;
+}
+
+.profileDivBottom {
+  padding: 1em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.profileTitle {
+  margin-top: 1em;
+  font-weight: bold;
 }
 
 .bio {
   list-style-type: none;
-  border: 1px solid black;
-}
-
-.softSkills {
-  grid-area: 1 / 2 / 2 / 3;
-  list-style-type: none;
-  border: 1px solid black;
-}
-
-/* .hardSkills {
-
-} */
-
-.whyDev {
-  border: 1px solid black;
 }
 
 .projects {
+  margin-top: 1em;
   list-style-type: none;
-  border: 1px solid black
 }
 
-.projectLine {
-  border: 1px solid black
+.socialIcons {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
