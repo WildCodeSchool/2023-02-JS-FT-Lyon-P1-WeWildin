@@ -6,6 +6,10 @@
   color: #273E47;
 }
 
+p {
+  max-width: 65ch;
+}
+
 body {
   z-index: 1;
   line-height: 1.5;
@@ -120,14 +124,14 @@ nav ul li a {
   right: 0;
   bottom: 56px;
   width: 100vw;
+  min-width: 375px;
   overflow: auto;
   background-color: #F8EEE1;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
+  font-size: calc(1em + 0.5vw);
 }
 
 .closeButton {
@@ -135,9 +139,6 @@ nav ul li a {
   position: absolute;
   z-index: 3;
   right: 0px;
-  /* width: 60px;
-  height: 60px;
-  opacity: 0.5; */
   width: 1.5em;
   height: 1.5em;
   display: flex;
@@ -150,6 +151,8 @@ nav ul li a {
   font-size: 2em;
   border: 1px solid black;
 }
+
+/* PHOTOS ET SOFT SKILLS */
 
 .profileDivTop {
   display: flex;
@@ -177,11 +180,19 @@ nav ul li a {
 
 .profilePic {
   object-fit: contain;
-  /* overflow: hidden; */
+  overflow: hidden;
   width: auto;
   height: auto;
   max-height: 100%;
   max-width: 100%;
+}
+
+.softSkillsBlock {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
 .softSkills {
@@ -190,14 +201,15 @@ nav ul li a {
   flex-direction: column;
   justify-content: flex-start;
   font-size: 1em;
-  padding: 3em 1em 1em 1em;
+  padding: 1em 1em 1em 1em;
   width: 50vw;
-  height: 35vh;
 }
 
+/* NOM ET AGE */
+
 .profileDivMiddle {
-  padding: 1em;
   margin-top: 1em;
+  padding: 0 1em 1em 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -221,6 +233,8 @@ nav ul li a {
   font-weight: bold;
 }
 
+/* BLOC DES HARD SKILLS */
+
 .hardSkills {
   padding: 1em;
   margin-top: 1em;
@@ -236,9 +250,10 @@ nav ul li a {
   height: 64px;
 }
 
+/* BIO, PROJETS et OBJECTIFS */
+
 .profileDivBottom {
   padding: 1em;
-  margin-top: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -258,6 +273,8 @@ nav ul li a {
   margin-top: 1em;
   list-style-type: none;
 }
+
+/* ICONES DES RESEAUX SOCIAUX */
 
 .socialIcons {
   margin-top: 1.5em;

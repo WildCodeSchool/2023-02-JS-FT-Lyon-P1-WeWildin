@@ -255,7 +255,7 @@ for (let wilder of wilders) {
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
 
-    //création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
+    //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
 
     newWilder.addEventListener("click", createProfilePage);
 
@@ -282,6 +282,8 @@ for (let wilder of wilders) {
             });
             profilePage.appendChild(closeButton);
 
+            // Création de la partie du haut du profil avec la photo de profil et les soft skills.
+
             let profileDivTop = document.createElement("div");
             profileDivTop.classList.add("profileDivTop");
             profilePage.appendChild(profileDivTop);
@@ -295,6 +297,16 @@ for (let wilder of wilders) {
             profilePic.setAttribute("id", wilder.firstName + "profilepic");
             profilePicBox.appendChild(profilePic);
 
+            let softSkillsBlock = document.createElement("div");
+            profileDivTop.appendChild(softSkillsBlock);
+            softSkillsBlock.classList.add("softSkillsBlock");
+            profileDivTop.appendChild(softSkillsBlock);
+
+            let softSkillsTitle = document.createElement("p");
+            softSkillsTitle.classList.add("profileTitle");
+            softSkillsTitle.innerText = "Mes soft skills :";
+            softSkillsBlock.appendChild(softSkillsTitle);
+
             let wildersSoftSkills = document.createElement("ul");
             wildersSoftSkills.classList.add("softSkills");
             for (let i = 0; i < wilder.softSkills.length; i++) {
@@ -302,7 +314,9 @@ for (let wilder of wilders) {
                 softSkillsPart.innerText = wilder.softSkills[i];
                 wildersSoftSkills.appendChild(softSkillsPart);
             }
-            profileDivTop.appendChild(wildersSoftSkills);
+            softSkillsBlock.appendChild(wildersSoftSkills);
+
+            // Création de la partie du milieu du profil, contenant le nom et l'âge du wilder.
 
             let profileDivMiddle = document.createElement("div");
             profileDivMiddle.classList.add("profileDivMiddle");
@@ -317,6 +331,8 @@ for (let wilder of wilders) {
             wildersAge.classList.add("age");
             wildersAge.innerText = wilder.age + " ans";
             profileDivMiddle.appendChild(wildersAge);
+
+            // Création de la ligne des hard skills du wilder.
 
             let wildersHardSkills = document.createElement("ul");
             wildersHardSkills.classList.add("hardSkills");
@@ -355,6 +371,8 @@ for (let wilder of wilders) {
 
             profilePage.appendChild(wildersHardSkills);
 
+            // Création de la partie du bas du profil, contenant la bio, les raisons de la reconversion, les projets et les objectifs.
+
             let profileDivBottom = document.createElement("div");
             profileDivBottom.classList.add("profileDivBottom");
             profilePage.appendChild(profileDivBottom);
@@ -387,15 +405,24 @@ for (let wilder of wilders) {
             whyDev.innerText = wilder.resonsWhyDev;
             profileDivBottom.appendChild(whyDev);
 
-            let projects = document.createElement("ul");
-            projects.classList.add("projects");
-            for (let i = 0; i < wilder.projects.length; i++) {
-                let newProject = document.createElement("li");
-                newProject.classList.add("projectLine");
-                newProject.innerHTML = `<a href = "${wilder.projects[i]}"> Projet ${i + 1}</a>`
-                projects.appendChild(newProject);
+            if (wilder.projects[0]) {
+                let projects = document.createElement("ul");
+                projects.classList.add("projects");
+
+                for (let i = 0; i < wilder.projects.length; i++) {
+                    if (i === 0) {
+                        let projectTitle = document.createElement("p");
+                        projectTitle.classList.add("profileTitle");
+                        projectTitle.innerText = "Mes projets :";
+                        profileDivBottom.appendChild(projectTitle);
+                    }
+                    let newProject = document.createElement("li");
+                    newProject.classList.add("projectLine");
+                    newProject.innerHTML = `<a href = "${wilder.projects[i]}"> Projet ${i + 1}</a>`
+                    projects.appendChild(newProject);
+                }
+                profileDivBottom.appendChild(projects);
             }
-            profileDivBottom.appendChild(projects);
 
             let objectivesTitle = document.createElement("p");
             objectivesTitle.classList.add("profileTitle");
@@ -406,6 +433,8 @@ for (let wilder of wilders) {
             objectives.classList.add("objectives");
             objectives.innerText = wilder.objectives;
             profileDivBottom.appendChild(objectives);
+
+            // Création de la ligne des icônes avec liens hypertextes pour les contacts et réseaux sociaux des wilders.
 
             let socialIcons = document.createElement("div");
             socialIcons.classList.add("socialIcons");
@@ -426,8 +455,6 @@ for (let wilder of wilders) {
             mailIcon.href = wilder.mail;
             mailIcon.innerHTML = "<img src = 'assets/mail_nr_48px.png'></img>";
             socialIcons.appendChild(mailIcon);
-
-
         }
     }
 }
