@@ -205,24 +205,8 @@ const pierre = {
     linkedIn: "",
     mail: "",
 }
-const teodor = {
-    pic: "assets/Teodor.png",
-    lastName: "ZEKHOV",
-    firstName: "Teodor",
-    age: 0,
-    bio: [],
-    softSkills: [],
-    hardSkills: [],
-    resonsWhyDev: "",
-    projects: "",
-    objectives: "",
-    gitHub: "https://github.com/teodor-zhekov",
-    linkedIn: "",
-    mail: "",
-}
 
-
-const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
+const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre];
 
 let trombinoscope = document.getElementById("trombinoscope");
 
@@ -237,4 +221,28 @@ for (let wilder of wilders) {
     trombiPic.setAttribute("id", wilder.firstName + "trombipic")
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
+
+    
+    let wildersName = document.createElement("h1");
+    wildersName.classList.add("profileName2");
+    wildersName.innerText = `${wilder.firstName}`;
+    newWilder.appendChild(wildersName);
+
+    let hardSkillsBlock = document.createElement("div");
+            hardSkillsBlock.classList.add("hardSkillsBlock");
+            newWilder.appendChild(hardSkillsBlock);
+
+    let wildersHardSkills = document.createElement("ul");
+    wildersHardSkills.classList.add("hardSkills");
+    for (let i = 0; i < wilder.hardSkills.length; i++) {
+        let hardSkillsPart = document.createElement("li");
+        hardSkillsPart.innerText = wilder.hardSkills[i];
+        wildersHardSkills.appendChild(hardSkillsPart);
+    }
+    hardSkillsBlock.appendChild(wildersHardSkills);
+
 }
+
+
+
+

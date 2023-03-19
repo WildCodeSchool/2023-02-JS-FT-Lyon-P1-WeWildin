@@ -1,39 +1,59 @@
-#trombinoscope {
+
+#trombinoscope{
     background-color: #F8EEE1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(7, 360px);
-    grid-column-gap: 5px;
-    margin: 10;
+    grid-template-columns: 1fr 1fr;    
+    
+}
+@media screen and (min-width : 768px){
+    #trombinoscope {
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
-.wilderPic {
-    width: 100%;
-    height: 100%
-}
-
-.wilderCard {
-    background-size: 100% auto;
-    display: flex;
-    flex-direction: column;
+.wilderPic{
+  
     width: 191.61px;
     height: 360px;
-    left: 0px;
-    top: 0px;
-    filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
+    background-color: rgba(251, 176, 76, 0.8);
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px rgb(188, 182, 182);
 }
+.wilderPic:hover{
+    transform: scale(1.2);
+    background-color: black;
 
-.logos {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    top: -50px;
+}
+.wilderCard{
     width: 191.61px;
-    height: 55px;
+    height: 360px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+  
 }
-
+.profileName2{
+    display: none;
+    font-size: 26px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    background-color: black;
+ 
+    
+}
+.wilderCard:hover .profileName2{
+    display: flex;
+    position: relative;
+    top: -70px;
+  
+}
+.hardSkills{
+    display: flex;
+    position:relative;
+    top: -50px;
+}
+//**
 #logohtml {
     width: 35px;
     height: 45px;
@@ -51,3 +71,11 @@
     height: 45px;
     margin: 2px
 }
+
+/**.logos {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: -50px;
+
+** //
