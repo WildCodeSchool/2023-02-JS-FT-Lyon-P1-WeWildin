@@ -334,6 +334,15 @@ for (let wilder of wilders) {
 
             // Création de la ligne des hard skills du wilder.
 
+            let hardSkillsBlock = document.createElement("div");
+            hardSkillsBlock.classList.add("hardSkillsBlock");
+            profilePage.appendChild(hardSkillsBlock);
+
+            let hardSkillsTitle = document.createElement("p");
+            hardSkillsTitle.classList.add("profileTitle");
+            hardSkillsTitle.innerText = "Ma boîte à outils :";
+            hardSkillsBlock.appendChild(hardSkillsTitle);
+
             let wildersHardSkills = document.createElement("ul");
             wildersHardSkills.classList.add("hardSkills");
             for (let i = 0; i < wilder.hardSkills.length; i++) {
@@ -341,7 +350,7 @@ for (let wilder of wilders) {
                 hardSkillsPart.innerText = wilder.hardSkills[i];
                 wildersHardSkills.appendChild(hardSkillsPart);
             }
-            profilePage.appendChild(wildersHardSkills);
+            hardSkillsBlock.appendChild(wildersHardSkills);
 
             // let wildersHardSkills = document.createElement("div");
             // wildersHardSkills.classList.add("hardSkills");
@@ -369,7 +378,7 @@ for (let wilder of wilders) {
             //     }
             // }
 
-            profilePage.appendChild(wildersHardSkills);
+            // profilePage.appendChild(wildersHardSkills);
 
             // Création de la partie du bas du profil, contenant la bio, les raisons de la reconversion, les projets et les objectifs.
 
