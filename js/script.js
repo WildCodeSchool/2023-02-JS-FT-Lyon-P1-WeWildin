@@ -106,8 +106,8 @@ const vanessa = {
     projects: [],
     objectives: "Stage après la formation avec la WCS et à long terme une alternance pour concepteur d'application web.",
     gitHub: "https://github.com/VanessaGrd",
-    linkedIn: "",
-    mail: "",
+    linkedIn: "https://www.linkedin.com/in/vanessa-giraud-522663237/",
+    mail: "suede210810@gmail.com",
 };
 
 const marcelo = {
@@ -186,8 +186,8 @@ const yann = {
     projects: [],
     objectives: "J'aimerais poursuivre avec une alternance après la formation.",
     gitHub: "https://github.com/LocoBajo",
-    linkedIn: "",
-    mail: "",
+    linkedIn: "https://www.linkedin.com/in/yann-richard-7192247b/",
+    mail: "yann.richard9@gmail.com",
 };
 
 const pierre = {
