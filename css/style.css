@@ -4,37 +4,56 @@
   body {
   line-height: 1.5;
   margin: 0;
+  padding: 0;
   background-color: #F8EEE1;
   }
   
   /* DARK MODE */
 
   body.dark {
-    background-color: #292c35;
+    background-color: #121212;
+    color: #FFFFFF;
   }
   
   /*HEADER*/
   
   header
   {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     background-color: #FBB04C;
-  
+    color: #121212;
+    position:fixed;
+    width: 100%;
+    top: 0;
   }
-  
-  h1
-  {
-   margin-left: 8rem;
-  }
-  
+
+  .header {
+    max-width: 1140px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+align-items: center;
+    
+}
+
+.title {
+width: 100%;
+text-align: center;
+}
+
+.button {
+  display: flex;
+}
+
+
+@media only screen and (min-width: 600px){ 
   .button
   {
-    margin-right: 1rem;
-    padding-top: 0.5rem;
+    position: absolute;
+    margin-left: 80%;
   }
-  
+ }
+
+
   .checkbox {
     opacity: 0;
   }
@@ -81,9 +100,15 @@
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  height: 3.5rem;
-    }
+  height: 4.5rem;
+}
   
+ .footer
+ {
+align-items: center;
+ }
+
+
     nav
     {
       white-space: nowrap;
@@ -97,6 +122,7 @@
   nav ul li
   {
     list-style: none;
+    line-height: 1.5rem;
   }
   
   nav ul li a
@@ -109,5 +135,6 @@
   {
   margin-left: 12rem;
   padding-right: 1rem;
-  
+  white-space: pre;
   }
+
