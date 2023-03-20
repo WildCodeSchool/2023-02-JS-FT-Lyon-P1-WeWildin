@@ -347,7 +347,7 @@ for (let wilder of wilders) {
             wildersHardSkills.classList.add("hardSkills");
             function createLanguageIcon(language) {
                 let hardSkillsPart = document.createElement("img");
-                hardSkillsPart.src = "assets/" + language.toLowerCase() +"-svg.svg";
+                hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
                 hardSkillsPart.classList.add("languageIcons");
                 wildersHardSkills.appendChild(hardSkillsPart);
             };
@@ -460,5 +460,4 @@ const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
     document.body.classList.toggle('dark');
-    document.querySelector(".profilePage").classList.toggle("dark");
 });
