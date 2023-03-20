@@ -1,43 +1,50 @@
+:root.dark {
+  background-color: var(--third-color);
+  color: var(--secondary-color);
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  --main-color: #FBB04C;
+  --secondary-color: #F8EEE1;
+  --third-color: #273E47;
   line-height: 1.5;
-  background-color: #F8EEE1;
-  }
-  
-  /* DARK MODE */
+  background-color: var(--secondary-color);
+}
 
-  body.dark {
-    background-color: #121212;
-    color: #FFFFFF;
-  }
-  
-  /*HEADER*/
-  
-  header
-  {
-    background-color: #FBB04C;
-    color: #121212;
-    position:fixed;
-    width: 100%;
-    top: 0;
-  }
+/* DARK MODE */
 
-  .header {
-    max-width: 1140px;
-    height: 100px;
-    margin: auto;
-    display: flex;
-align-items: center;
-    
+body.dark {
+  background-color: var(--third-color);
+  color: var(--secondary-color);
+}
+
+/*HEADER*/
+
+header {
+  background-color: var(--main-color);
+  color: var(--third-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.header {
+  max-width: 1140px;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
 }
 
 .title {
-width: 100%;
-text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .button {
@@ -45,49 +52,48 @@ text-align: center;
 }
 
 
-@media only screen and (min-width: 600px){ 
-  .button
-  {
+@media only screen and (min-width: 600px) {
+  .button {
     position: absolute;
     margin-left: 80%;
   }
- }
+}
 
 
-  .checkbox {
-    opacity: 0;
-  }
-  
-  .label {
-    width: 50px;
-    height: 26px;
-    background-color:#111;
-    display: flex;
-    border-radius:50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    position: relative;
-    transform: scale(1);
-  }
-  
-  .ball {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 50%;
-    transition: transform 0.2s linear;
-  }
-  
-  /*target the ball inside button*/
-  .checkbox:checked + .label .ball{
-    transform: translateX(24px);
-  }
+.checkbox {
+  opacity: 0;
+}
 
-  /* PAGE DE PROFIL */
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1);
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*target the ball inside button*/
+.checkbox:checked+.label .ball {
+  transform: translateX(24px);
+}
+
+/* PAGE DE PROFIL */
 
 .profilePage {
   z-index: 2;
@@ -99,7 +105,7 @@ text-align: center;
   width: 100vw;
   min-width: 375px;
   overflow: auto;
-  background-color: #F8EEE1;
+  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -118,7 +124,7 @@ text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #273E47;
+  color: var(--third-color);
   border: none;
   background-color: #1fe0;
   font-size: 2em;
@@ -142,13 +148,13 @@ text-align: center;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
-  background-color: #FBB04C;
+  background-color: var(--main-color);
   border-radius: 0px 0px 10px 0px;
-  box-shadow: 2px 2px 30px black;
+  box-shadow: 2px 2px 30px var(--third-color);
 }
 
 .profilePicBox:hover {
-  background-color: #273E47;
+  background-color: var(--third-color);
 }
 
 .profilePic {
@@ -258,14 +264,13 @@ text-align: center;
   flex-direction: row;
   justify-content: space-around;
 }
-  
-  
-  
-  /* Footer */
-  
-  footer
-  
-  {background-color: #FBB04C ;
+
+
+
+/* Footer */
+
+footer {
+  background-color: var(--main-color);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -274,41 +279,33 @@ text-align: center;
   font-size: 12px;
   height: 4.5rem;
 }
-  
- .footer
- {
-align-items: center;
- }
+
+.footer {
+  align-items: center;
+}
 
 
-    nav
-    {
-      white-space: nowrap;
-    }
-  
-    nav ul {
-    padding: 1rem ;
-    margin: 0;
-    }
-  
-  nav ul li
-  {
-    list-style: none;
-    line-height: 1.5rem;
-  }
-  
-  nav ul li a
-  {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .adress
-  {
+nav {
+  white-space: nowrap;
+}
+
+nav ul {
+  padding: 1rem;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--third-color);
+}
+
+.adress {
   margin-left: 12rem;
   padding-right: 1rem;
   white-space: pre;
-
-  }
-
-
+}
