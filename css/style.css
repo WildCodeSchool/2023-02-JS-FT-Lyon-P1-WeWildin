@@ -243,12 +243,12 @@ nav ul li a {
 .hardSkills {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: nowrap;
   list-style-type: none;
 }
 
-.JSIcon svg {
+.languageIcons {
   width: 64px;
   height: 64px;
 }
