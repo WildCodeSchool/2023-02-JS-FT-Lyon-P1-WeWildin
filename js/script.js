@@ -460,4 +460,5 @@ const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
     document.body.classList.toggle('dark');
+    document.querySelector(".profilePage").classList.toggle("dark");
 });
