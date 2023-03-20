@@ -98,10 +98,10 @@ header {
 .profilePage {
   z-index: 2;
   position: fixed;
-  top: 58px;
+  top: 100px;
   left: 0;
   right: 0;
-  bottom: 56px;
+  bottom: 72px;
   width: 100vw;
   min-width: 375px;
   overflow: auto;
@@ -111,6 +111,11 @@ header {
   flex-wrap: nowrap;
   justify-content: flex-start;
   font-size: calc(1em + 0.5vw);
+}
+
+.profilePage.dark {
+  background-color: #121212;
+  color: #F8EEE1;
 }
 
 .closeButton {
@@ -151,10 +156,6 @@ header {
   background-color: var(--main-color);
   border-radius: 0px 0px 10px 0px;
   box-shadow: 2px 2px 30px var(--third-color);
-}
-
-.profilePicBox:hover {
-  background-color: var(--third-color);
 }
 
 .profilePic {
@@ -222,12 +223,12 @@ header {
 .hardSkills {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: nowrap;
   list-style-type: none;
 }
 
-.JSIcon svg {
+.languageIcons {
   width: 64px;
   height: 64px;
 }
