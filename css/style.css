@@ -1,3 +1,317 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+  line-height: 1.5;
+  background-color: #F8EEE1;
+  }
+  
+  /* DARK MODE */
+
+  body.dark {
+    background-color: #121212;
+    color: #FFFFFF;
+  }
+  
+  /*HEADER*/
+  
+  header
+  {
+    background-color: #FBB04C;
+    color: #121212;
+    position:fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  .header {
+    max-width: 1140px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+align-items: center;
+    
+}
+
+.title {
+width: 100%;
+text-align: center;
+}
+
+.button {
+  display: flex;
+}
+
+
+@media only screen and (min-width: 600px){ 
+  .button
+  {
+    position: absolute;
+    margin-left: 80%;
+  }
+ }
+
+
+  .checkbox {
+    opacity: 0;
+  }
+  
+  .label {
+    width: 50px;
+    height: 26px;
+    background-color:#111;
+    display: flex;
+    border-radius:50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    transform: scale(1);
+  }
+  
+  .ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+  
+  /*target the ball inside button*/
+  .checkbox:checked + .label .ball{
+    transform: translateX(24px);
+  }
+
+  /* PAGE DE PROFIL */
+
+.profilePage {
+  z-index: 2;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  width: 100vw;
+  min-width: 375px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  font-size: calc(1em + 0.5vw);
+}
+
+.profilePage.dark {
+  background-color: #121212;
+  color: #F8EEE1;
+}
+
+.closeButton {
+  line-height: 1;
+  position: absolute;
+  z-index: 3;
+  right: 0px;
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #273E47;
+  border: none;
+  background-color: #1fe0;
+  font-size: 2em;
+  border: 1px solid black;
+}
+
+/* PHOTOS ET SOFT SKILLS */
+
+.profileDivTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-around;
+  flex-wrap: nowrap;
+}
+
+.profilePicBox {
+  width: 40vw;
+  height: 35vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  background-color: #FBB04C;
+  border-radius: 0px 0px 10px 0px;
+  box-shadow: 2px 2px 30px black;
+}
+
+.profilePic {
+  object-fit: contain;
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.softSkillsBlock {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.softSkills {
+  list-style-type: square;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1em;
+  padding: 1em 1em 1em 1em;
+  width: 50vw;
+}
+
+/* NOM ET AGE */
+
+.profileDivMiddle {
+  margin-top: 1em;
+  padding: 0 1em 1em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.profilePage h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.profileName {
+  width: 40vw;
+  font-weight: bold;
+}
+
+.age {
+  text-align: center;
+  margin: auto;
+  width: 40vw;
+  font-weight: bold;
+}
+
+/* BLOC DES HARD SKILLS */
+
+.hardSkillsBlock {
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.hardSkills {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  list-style-type: none;
+}
+
+.languageIcons {
+  width: 64px;
+  height: 64px;
+}
+
+/* BIO, PROJETS et OBJECTIFS */
+
+.profileDivBottom {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.profileTitle {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.bio {
+  list-style-type: none;
+}
+
+.projects {
+  list-style-type: none;
+}
+
+/* ICONES DES RESEAUX SOCIAUX */
+
+.socialIcons {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+  
+  
+  
+  /* Footer */
+  
+  footer
+  
+  {background-color: #FBB04C ;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  height: 4.5rem;
+}
+  
+ .footer
+ {
+align-items: center;
+ }
+
+
+    nav
+    {
+      white-space: nowrap;
+    }
+  
+    nav ul {
+    padding: 1rem ;
+    margin: 0;
+    }
+  
+  nav ul li
+  {
+    list-style: none;
+    line-height: 1.5rem;
+  }
+  
+  nav ul li a
+  {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .adress
+  {
+  margin-left: 12rem;
+  padding-right: 1rem;
+  white-space: pre;
+
+  }
+
+
 /*Mise en page trombi*/
 #trombinoscope{
     background-color: #F8EEE1;
