@@ -1,7 +1,10 @@
+@import url();
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
@@ -273,6 +276,7 @@ header {
 /* Footer */
 
 footer {
+
   transition: var(--bg-transition);
   transition: var(--color-transition);
   background-color: var(--main-color);
@@ -321,8 +325,92 @@ a:visited {
   font-weight: bold;
 }
 
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
 .adress {
   margin-left: 12rem;
   padding-right: 1rem;
   white-space: pre;
+}
+
+
+/*Mise en page trombi*/
+#trombinoscope {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 30px;
+  margin-top: 140px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+
+}
+
+@media screen and (min-width : 768px) {
+  #trombinoscope {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/*mise en page cards dans trombi*/
+.wilderPic {
+  width: 191.61px;
+  height: 360px;
+  background-color: #fbb04ccc;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(188, 182, 182);
+  transition: background-color 400ms linear;
+}
+
+.wilderCard:hover .wilderPic {
+  transform: scale(1.2);
+  background-color: #121212;
+}
+
+.wilderCard {
+  width: 191.61px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.profileName2 {
+  display: none;
+
+
+  background-color: #1212123e;
+}
+
+/*background: linear-gradient(90deg, #12121299, #fbb04ccc);
+
+
+/*hardSkills*/
+.hardSkills2 {
+  display: flex;
+  position: relative;
+  top: -70px;
+  background-color: #1212123e;
+  border-radius: 5px;
+}
+
+.languageIcons2 {
+  height: 35px;
+
+}
+
+/*mise en page name sur card*/
+.wilderCard:hover .profileName2 {
+  display: flex;
+  position: relative;
+  text-align: center;
+  top: -70px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+  color: #F8EEE1;
+  border-radius: 5px;
 }
