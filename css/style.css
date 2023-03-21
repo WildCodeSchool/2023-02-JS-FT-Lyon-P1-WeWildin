@@ -1,43 +1,48 @@
+@import url();
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
   line-height: 1.5;
   background-color: #F8EEE1;
-  }
-  
-  /* DARK MODE */
+}
 
-  body.dark {
-    background-color: #121212;
-    color: #FFFFFF;
-  }
-  
-  /*HEADER*/
-  
-  header
-  {
-    background-color: #FBB04C;
-    color: #121212;
-    position:fixed;
-    width: 100%;
-    top: 0;
-  }
+/* DARK MODE */
 
-  .header {
-    max-width: 1140px;
-    height: 100px;
-    margin: auto;
-    display: flex;
-align-items: center;
-    
+body.dark {
+  background-color: #121212;
+  color: #FFFFFF;
+}
+
+
+/*HEADER*/
+
+
+header {
+  background-color: #FBB04C;
+  color: #121212;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.header {
+  max-width: 1140px;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+
 }
 
 .title {
-width: 100%;
-text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .button {
@@ -45,49 +50,48 @@ text-align: center;
 }
 
 
-@media only screen and (min-width: 600px){ 
-  .button
-  {
+@media only screen and (min-width: 600px) {
+  .button {
     position: absolute;
     margin-left: 80%;
   }
- }
+}
 
 
-  .checkbox {
-    opacity: 0;
-  }
-  
-  .label {
-    width: 50px;
-    height: 26px;
-    background-color:#111;
-    display: flex;
-    border-radius:50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    position: relative;
-    transform: scale(1);
-  }
-  
-  .ball {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 50%;
-    transition: transform 0.2s linear;
-  }
-  
-  /*target the ball inside button*/
-  .checkbox:checked + .label .ball{
-    transform: translateX(24px);
-  }
+.checkbox {
+  opacity: 0;
+}
 
-  /* PAGE DE PROFIL */
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1);
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*target the ball inside button*/
+.checkbox:checked+.label .ball {
+  transform: translateX(24px);
+}
+
+/* PAGE DE PROFIL */
 
 .profilePage {
   z-index: 2;
@@ -258,14 +262,13 @@ text-align: center;
   flex-direction: row;
   justify-content: space-around;
 }
-  
-  
-  
-  /* Footer */
-  
-  footer
-  
-  {background-color: #FBB04C ;
+
+
+
+/* Footer */
+
+footer {
+  background-color: #FBB04C;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -274,102 +277,114 @@ text-align: center;
   font-size: 12px;
   height: 4.5rem;
 }
-  
- .footer
- {
-align-items: center;
- }
+
+.footer {
+  align-items: center;
+}
 
 
-    nav
-    {
-      white-space: nowrap;
-    }
-  
-    nav ul {
-    padding: 1rem ;
-    margin: 0;
-    }
-  
-  nav ul li
-  {
-    list-style: none;
-    line-height: 1.5rem;
-  }
-  
-  nav ul li a
-  {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .adress
-  {
+nav {
+  white-space: nowrap;
+}
+
+nav ul {
+  padding: 1rem;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.adress {
   margin-left: 12rem;
   padding-right: 1rem;
   white-space: pre;
 
-  }
+}
 
 
 /*Mise en page trombi*/
-#trombinoscope{
-    background-color: #F8EEE1;
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    row-gap: 30px; 
+#trombinoscope {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 30px;
+  margin-top: 140px;
+  margin-left: 50px;
+  margin-right: 50px;
+
 
 }
-@media screen and (min-width : 768px){
-    #trombinoscope {
+
+@media screen and (min-width : 768px) {
+  #trombinoscope {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+  }
 }
+
 /*mise en page cards dans trombi*/
-.wilderPic{
-    width: 191.61px;
-    height: 360px;
-    background-color: rgba(251, 176, 76, 0.8);
-    border-radius: 10px;
-    box-shadow: 10px 5px 5px rgb(188, 182, 182);
-    transition: background-color 400ms linear;
-}
-.wilderCard:hover .wilderPic{
-    transform: scale(1.2);
-    background-color: black;
+.wilderPic {
+  width: 191.61px;
+  height: 360px;
+  background-color: #fbb04ccc;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(188, 182, 182);
+  transition: background-color 400ms linear;
 }
 
-.wilderCard{
-    width: 191.61px;
-    height: 360px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.wilderCard:hover .wilderPic {
+  transform: scale(1.2);
+  background-color: #121212;
 }
 
-.profileName2{
-    display: none;
-    width: 80%;   
-    
+.wilderCard {
+  width: 191.61px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
 }
-/*mise en page name sur card*/
-.wilderCard:hover .profileName2{
-    display: flex;
-    position: relative;
-    top: -70px;
-    font-family: "Josefin", sans-serif; 
-    font-size: 24px;
-    color: black;
-    text-shadow: #F8EEE1 2px 3px 2px;
-    justify-content: center;
+
+.profileName2 {
+  display: none;
+  
+  
+  background-color: #1212123e;
 }
+  /*background: linear-gradient(90deg, #12121299, #fbb04ccc);
+
 
 /*hardSkills*/
-.hardSkills{
-    display: none;
-    position:relative;
-    top: -50px;
+.hardSkills2 {
+  display: flex;
+  position: relative;
+  top: -70px;
+  background-color: #1212123e;
+  border-radius: 5px;
 }
 
+.languageIcons2 {
+  height: 35px;
 
+}
+
+/*mise en page name sur card*/
+.wilderCard:hover .profileName2 {
+  display: flex;
+  position: relative;
+  text-align :center;
+  top: -70px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+  color:#F8EEE1 ;
+  border-radius: 5px;
+ 
+
+}

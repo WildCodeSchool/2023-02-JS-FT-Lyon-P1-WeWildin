@@ -261,18 +261,36 @@ for (let wilder of wilders) {
     wildersName.innerText = `${wilder.firstName}`;
     newWilder.appendChild(wildersName);
 
-    let hardSkillsBlock = document.createElement("div");
-            hardSkillsBlock.classList.add("hardSkillsBlock");
-            newWilder.appendChild(hardSkillsBlock);
+ /* Création hardskills wilders sur photo trombi*/
 
-    let wildersHardSkills = document.createElement("ul");
-    wildersHardSkills.classList.add("hardSkills");
-    for (let i = 0; i < wilder.hardSkills.length; i++) {
-        let hardSkillsPart = document.createElement("li");
-        hardSkillsPart.innerText = wilder.hardSkills[i];
-        wildersHardSkills.appendChild(hardSkillsPart);
+
+let wildersHardSkills2 = document.createElement("div");
+wildersHardSkills2.classList.add("hardSkills2");
+function createLanguageIcon(language) {
+    let hardSkillsPart = document.createElement("img");
+    hardSkillsPart.src = "assets/" + language.toLowerCase() +"-svg.svg";
+    hardSkillsPart.classList.add("languageIcons2");
+    wildersHardSkills2.appendChild(hardSkillsPart);
+};
+newWilder.appendChild(wildersHardSkills2);
+
+for (let i = 0; i < wilder.hardSkills.length; i++) {
+    if (wilder.hardSkills[i] === "HTML") {
+        createLanguageIcon("HTML");
+    } else if (wilder.hardSkills[i] === "JavaScript") {
+        createLanguageIcon("JavaScript");
+    } else if (wilder.hardSkills[i] === "Node.js") {
+        createLanguageIcon("Node");
+    } else if (wilder.hardSkills[i] === "PHP") {
+        createLanguageIcon("PHP");
+    } else if (wilder.hardSkills[i] === "React") {
+        createLanguageIcon("React");
+    } else if (wilder.hardSkills[i] === "Python") {
+        createLanguageIcon("Python");
     }
-    hardSkillsBlock.appendChild(wildersHardSkills);
+newWilder.appendChild(wildersHardSkills2);
+
+}
 
 
     //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
@@ -298,7 +316,7 @@ for (let wilder of wilders) {
             closeButton.addEventListener("click", function () {
                 profilePage.remove();
                 activeProfile = false;
-                trombinoscope.style.display = "block";
+                trombinoscope.style.display = "grid";
             });
             profilePage.appendChild(closeButton);
 
@@ -472,10 +490,8 @@ for (let wilder of wilders) {
             socialIcons.appendChild(mailIcon);
         }
     }
+
 }
-
-
-
 
 
 /* DARK MODE */
