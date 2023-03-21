@@ -503,3 +503,54 @@ const checkbox = document.getElementById('checkbox');
 checkbox.addEventListener('change', () => {
     document.body.classList.toggle('dark');
 });
+
+// Création d'un array pour lister toutes les soft skills contenues dans les objets wilder.
+let softSkillsGlobalArray = [];
+
+for (let wilder of wilders) {
+    for (let i = 0; i < wilder.softSkills.length; i++) {
+        if (softSkillsGlobalArray === [] || softSkillsGlobalArray.includes(wilder.softSkills[i]) === false) {
+            softSkillsGlobalArray.push(wilder.softSkills[i]);
+        }
+    }
+}
+softSkillsGlobalArray.sort();
+
+
+let menu = document.querySelector(".softSkillsFilter");
+let softSkillsFilterArray = [];
+let filteredWilders = [];
+
+for (let i = 0; i < softSkillsGlobalArray.length; i++) {
+    let newSoftSkill = document.createElement("li");
+    newSoftSkill.classList.add("softSkillFilter");
+    newSoftSkill.setAttribute("id", "softSkill" + i)
+    newSoftSkill.innerText = softSkillsGlobalArray[i];
+    menu.appendChild(newSoftSkill);
+
+    // création d'un eventListener pour générer
+
+    newSoftSkill.addEventListener("click", function () {
+        newSoftSkill.classList.toggle("selected");
+        if (newSoftSkill.classList.contains("selected") === true) {
+            console.log(newSoftSkill + " is selected")
+            for (let wilder of wilders) {
+                console.log(wilder.firstName);
+                if (wilder.softSkills.includes(softSkillsGlobalArray[i]) === false) {
+                    console.log(wilder.softSkills.includes(softSkillsGlobalArray[i]));
+                    filteredWilders.push(wilder.firstName.toLowerCase())
+                }
+            }
+        } else {
+            console.log(newSoftSkill + " is not selected anymore")
+            for (let wilder of wilders) {
+                console.log(wilder.firstName);
+                if (wilder.softSkills.includes(softSkillsGlobalArray[i]) === true) {
+                    console.log(wilder.softSkills.includes(softSkillsGlobalArray[i]));
+                    let wilderIndex = filteredWilders.indexOf(wilder.firstName.toLowerCase());
+                    filteredWilders.splice(wilderIndex, 1);
+                }
+            }
+        }
+    });
+}

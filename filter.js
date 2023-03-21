@@ -247,7 +247,7 @@ softSkillsGlobalArray.sort();
 console.log("softSkillsGlobalArray =" + softSkillsGlobalArray);
 console.log(softSkillsGlobalArray.length);
 
-let menu = querySelector("menu");
+let menu = querySelector("softSkillsFilter");
 
 let softSkillsFilterArray = [];
 let filteredWilders = [];

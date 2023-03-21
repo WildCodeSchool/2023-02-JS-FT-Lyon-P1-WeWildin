@@ -410,3 +410,8 @@ nav ul li a {
   color: #F8EEE1;
   border-radius: 5px;
 }
+
+.softSkillsFilter {
+  background-color: var(--main-color);
+  color: var(--third-color);
+}
