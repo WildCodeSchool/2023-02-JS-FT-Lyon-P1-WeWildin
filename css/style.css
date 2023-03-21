@@ -16,8 +16,7 @@ body {
   line-height: 1.5;
   background-color: var(--secondary-color);
   color: var(--third-color);
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 /* DARK MODE */
@@ -32,8 +31,7 @@ body.dark {
 /*HEADER*/
 
 header {
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
   background-color: var(--main-color);
   color: var(--third-color);
   position: fixed;
@@ -135,8 +133,7 @@ header {
   background-color: #1fe0;
   font-size: 2em;
   border: 1px solid var(--third-color);
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 /* PHOTOS ET SOFT SKILLS */
@@ -159,8 +156,7 @@ header {
   background-color: var(--main-color);
   border-radius: 0px 0px 10px 0px;
   box-shadow: 1px 1px 30px var(--third-color);
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .profilePic {
@@ -261,6 +257,10 @@ header {
   list-style-type: none;
 }
 
+.projects a {
+  text-decoration-line: underline;
+}
+
 /* ICONES DES RESEAUX SOCIAUX */
 
 .socialIcons {
@@ -276,9 +276,7 @@ header {
 /* Footer */
 
 footer {
-
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
   background-color: var(--main-color);
   position: fixed;
   bottom: 0;
@@ -309,16 +307,14 @@ nav ul li {
 }
 
 a {
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
   text-decoration: none;
   color: var(--third-color);
   font-weight: bold;
 }
 
 a:visited {
-  transition: var(--bg-transition);
-  transition: var(--color-transition);
+  transition: var(--bg-transition), var(--color-transition);
   text-decoration: none;
   text-decoration-line: none;
   color: var(--third-color);
@@ -327,7 +323,8 @@ a:visited {
 
 nav ul li a {
   text-decoration: none;
-  color: black;
+  color: var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .adress {
@@ -359,10 +356,10 @@ nav ul li a {
 .wilderPic {
   width: 191.61px;
   height: 360px;
-  background-color: #fbb04ccc;
+  background-color: var(--main-color);
   border-radius: 10px;
   box-shadow: 10px 5px 5px rgb(188, 182, 182);
-  transition: background-color 400ms linear;
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .wilderCard:hover .wilderPic {
@@ -381,8 +378,6 @@ nav ul li a {
 
 .profileName2 {
   display: none;
-
-
   background-color: #1212123e;
 }
 
