@@ -1,3 +1,5 @@
+@import url();
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,22 +8,32 @@
 }
 
 body {
+  --bg-transition: background-color .5s linear;
+  --color-transition: color .5s linear;
+  --main-color: #FBB04C;
+  --secondary-color: #F8EEE1;
+  --third-color: #273E47;
   line-height: 1.5;
-  background-color: #F8EEE1;
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 /* DARK MODE */
 
 body.dark {
-  background-color: #121212;
-  color: #FFFFFF;
+  --main-color: #ac762f;
+  /* --secondary-color: #121212; */
+  --secondary-color: #273E47;
+  --third-color: #f8dfbf;
 }
 
 /*HEADER*/
 
 header {
-  background-color: #FBB04C;
-  color: #121212;
+  transition: var(--bg-transition), var(--color-transition);
+  background-color: var(--main-color);
+  color: var(--third-color);
   position: fixed;
   width: 100%;
   top: 0;
@@ -33,7 +45,6 @@ header {
   margin: auto;
   display: flex;
   align-items: center;
-
 }
 
 .title {
@@ -106,11 +117,6 @@ header {
   font-size: calc(1em + 0.5vw);
 }
 
-.profilePage.dark {
-  background-color: #121212;
-  color: #F8EEE1;
-}
-
 .closeButton {
   line-height: 1;
   position: absolute;
@@ -122,11 +128,12 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #273E47;
+  color: var(--third-color);
   border: none;
   background-color: #1fe0;
   font-size: 2em;
-  border: 1px solid black;
+  border: 1px solid var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 /* PHOTOS ET SOFT SKILLS */
@@ -146,9 +153,10 @@ header {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
-  background-color: #FBB04C;
+  background-color: var(--main-color);
   border-radius: 0px 0px 10px 0px;
-  box-shadow: 2px 2px 30px black;
+  box-shadow: 1px 1px 30px var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .profilePic {
@@ -249,6 +257,10 @@ header {
   list-style-type: none;
 }
 
+.projects a {
+  text-decoration-line: underline;
+}
+
 /* ICONES DES RESEAUX SOCIAUX */
 
 .socialIcons {
@@ -264,7 +276,9 @@ header {
 /* Footer */
 
 footer {
-  background-color: #FBB04C;
+
+  transition: var(--bg-transition), var(--color-transition);
+  background-color: var(--main-color);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -293,14 +307,106 @@ nav ul li {
   line-height: 1.5rem;
 }
 
+
+a {
+  transition: var(--bg-transition), var(--color-transition);
+  text-decoration: none;
+  color: var(--third-color);
+  font-weight: bold;
+}
+
+a:visited {
+  transition: var(--bg-transition), var(--color-transition);
+  text-decoration: none;
+  text-decoration-line: none;
+  color: var(--third-color);
+  font-weight: bold;
+}
+
 nav ul li a {
   text-decoration: none;
-  color: black;
+  color: var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .adress {
   margin-left: 12rem;
   padding-right: 1rem;
   white-space: pre;
+}
 
+/*Mise en page trombi*/
+#trombinoscope {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 30px;
+  margin-top: 140px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+
+}
+
+@media screen and (min-width : 768px) {
+  #trombinoscope {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/*mise en page cards dans trombi*/
+.wilderPic {
+  width: 191.61px;
+  height: 360px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(188, 182, 182);
+  transition: var(--bg-transition), var(--color-transition);
+}
+
+.wilderCard:hover .wilderPic {
+  transform: scale(1.2);
+  background-color: #121212;
+}
+
+.wilderCard {
+  width: 191.61px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.profileName2 {
+  display: none;
+  background-color: #1212123e;
+}
+
+/*background: linear-gradient(90deg, #12121299, #fbb04ccc);
+
+
+/*hardSkills*/
+.hardSkills2 {
+  display: flex;
+  position: relative;
+  top: -70px;
+  background-color: #1212123e;
+  border-radius: 5px;
+}
+
+.languageIcons2 {
+  height: 35px;
+
+}
+
+/*mise en page name sur card*/
+.wilderCard:hover .profileName2 {
+  display: flex;
+  position: relative;
+  text-align: center;
+  top: -70px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+  color: #F8EEE1;
+  border-radius: 5px;
 }

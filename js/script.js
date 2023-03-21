@@ -102,7 +102,7 @@ const vanessa = {
     firstName: "Vanessa",
     age: 35,
     bio: ["Assistante médicale depuis 2009 dans un centre de lutte contre le cancer.", "Management d'une équipe de 9 AM pendant 3 ans.", "Février 2023 : début WCS"],
-    softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Patience", "Créativité"],
+    softSkills: ["Autonomie et capacité d’adaptation", "Organisation", "Esprit d’équipe et communication", "Patience", "Créativité"],
     hardSkills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     resonsWhyDev: "J'ai toujours été attirée par la tech et le dev web pour la résolution des problèmes et la créativité.",
     projects: [],
@@ -255,6 +255,44 @@ for (let wilder of wilders) {
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
 
+
+    let wildersName = document.createElement("h1");
+    wildersName.classList.add("profileName2");
+    wildersName.innerText = `${wilder.firstName}`;
+    newWilder.appendChild(wildersName);
+
+    /* Création hardskills wilders sur photo trombi*/
+
+
+    let wildersHardSkills2 = document.createElement("div");
+    wildersHardSkills2.classList.add("hardSkills2");
+    function createLanguageIcon(language) {
+        let hardSkillsPart = document.createElement("img");
+        hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
+        hardSkillsPart.classList.add("languageIcons2");
+        wildersHardSkills2.appendChild(hardSkillsPart);
+    };
+    newWilder.appendChild(wildersHardSkills2);
+
+    for (let i = 0; i < wilder.hardSkills.length; i++) {
+        if (wilder.hardSkills[i] === "HTML") {
+            createLanguageIcon("HTML");
+        } else if (wilder.hardSkills[i] === "JavaScript") {
+            createLanguageIcon("JavaScript");
+        } else if (wilder.hardSkills[i] === "Node.js") {
+            createLanguageIcon("Node");
+        } else if (wilder.hardSkills[i] === "PHP") {
+            createLanguageIcon("PHP");
+        } else if (wilder.hardSkills[i] === "React") {
+            createLanguageIcon("React");
+        } else if (wilder.hardSkills[i] === "Python") {
+            createLanguageIcon("Python");
+        }
+        newWilder.appendChild(wildersHardSkills2);
+
+    }
+
+
     //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
 
     newWilder.addEventListener("click", createProfilePage);
@@ -269,6 +307,7 @@ for (let wilder of wilders) {
             profilePage.classList.add("profilePage");
             profilePage.classList.add("active");
             document.body.appendChild(profilePage);
+            // profilePage.before(document.getElementsByTagName("footer"));
 
             let closeButton = document.createElement("button");
             closeButton.innerText = "X";
@@ -278,7 +317,7 @@ for (let wilder of wilders) {
             closeButton.addEventListener("click", function () {
                 profilePage.remove();
                 activeProfile = false;
-                trombinoscope.style.display = "block";
+                trombinoscope.style.display = "grid";
             });
             profilePage.appendChild(closeButton);
 
@@ -294,6 +333,7 @@ for (let wilder of wilders) {
 
             let profilePic = trombiPic.cloneNode();
             profilePic.classList.add("profilePic");
+            profilePic.classList.remove("wilderPic")
             profilePic.setAttribute("id", wilder.firstName + "profilepic");
             profilePicBox.appendChild(profilePic);
 
@@ -347,7 +387,7 @@ for (let wilder of wilders) {
             wildersHardSkills.classList.add("hardSkills");
             function createLanguageIcon(language) {
                 let hardSkillsPart = document.createElement("img");
-                hardSkillsPart.src = "assets/" + language.toLowerCase() +"-svg.svg";
+                hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
                 hardSkillsPart.classList.add("languageIcons");
                 wildersHardSkills.appendChild(hardSkillsPart);
             };
@@ -452,7 +492,9 @@ for (let wilder of wilders) {
             socialIcons.appendChild(mailIcon);
         }
     }
+
 }
+
 
 /* DARK MODE */
 
@@ -460,5 +502,4 @@ const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
     document.body.classList.toggle('dark');
-    document.querySelector(".profilePage").classList.toggle("dark");
 });
