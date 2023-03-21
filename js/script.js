@@ -255,42 +255,42 @@ for (let wilder of wilders) {
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
 
-    
+
     let wildersName = document.createElement("h1");
     wildersName.classList.add("profileName2");
     wildersName.innerText = `${wilder.firstName}`;
     newWilder.appendChild(wildersName);
 
- /* Création hardskills wilders sur photo trombi*/
+    /* Création hardskills wilders sur photo trombi*/
 
 
-let wildersHardSkills2 = document.createElement("div");
-wildersHardSkills2.classList.add("hardSkills2");
-function createLanguageIcon(language) {
-    let hardSkillsPart = document.createElement("img");
-    hardSkillsPart.src = "assets/" + language.toLowerCase() +"-svg.svg";
-    hardSkillsPart.classList.add("languageIcons2");
-    wildersHardSkills2.appendChild(hardSkillsPart);
-};
-newWilder.appendChild(wildersHardSkills2);
+    let wildersHardSkills2 = document.createElement("div");
+    wildersHardSkills2.classList.add("hardSkills2");
+    function createLanguageIcon(language) {
+        let hardSkillsPart = document.createElement("img");
+        hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
+        hardSkillsPart.classList.add("languageIcons2");
+        wildersHardSkills2.appendChild(hardSkillsPart);
+    };
+    newWilder.appendChild(wildersHardSkills2);
 
-for (let i = 0; i < wilder.hardSkills.length; i++) {
-    if (wilder.hardSkills[i] === "HTML") {
-        createLanguageIcon("HTML");
-    } else if (wilder.hardSkills[i] === "JavaScript") {
-        createLanguageIcon("JavaScript");
-    } else if (wilder.hardSkills[i] === "Node.js") {
-        createLanguageIcon("Node");
-    } else if (wilder.hardSkills[i] === "PHP") {
-        createLanguageIcon("PHP");
-    } else if (wilder.hardSkills[i] === "React") {
-        createLanguageIcon("React");
-    } else if (wilder.hardSkills[i] === "Python") {
-        createLanguageIcon("Python");
+    for (let i = 0; i < wilder.hardSkills.length; i++) {
+        if (wilder.hardSkills[i] === "HTML") {
+            createLanguageIcon("HTML");
+        } else if (wilder.hardSkills[i] === "JavaScript") {
+            createLanguageIcon("JavaScript");
+        } else if (wilder.hardSkills[i] === "Node.js") {
+            createLanguageIcon("Node");
+        } else if (wilder.hardSkills[i] === "PHP") {
+            createLanguageIcon("PHP");
+        } else if (wilder.hardSkills[i] === "React") {
+            createLanguageIcon("React");
+        } else if (wilder.hardSkills[i] === "Python") {
+            createLanguageIcon("Python");
+        }
+        newWilder.appendChild(wildersHardSkills2);
+
     }
-newWilder.appendChild(wildersHardSkills2);
-
-}
 
 
     //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
@@ -307,6 +307,7 @@ newWilder.appendChild(wildersHardSkills2);
             profilePage.classList.add("profilePage");
             profilePage.classList.add("active");
             document.body.appendChild(profilePage);
+            // profilePage.before(document.getElementsByTagName("footer"));
 
             let closeButton = document.createElement("button");
             closeButton.innerText = "X";
@@ -332,6 +333,7 @@ newWilder.appendChild(wildersHardSkills2);
 
             let profilePic = trombiPic.cloneNode();
             profilePic.classList.add("profilePic");
+            profilePic.classList.remove("wilderPic")
             profilePic.setAttribute("id", wilder.firstName + "profilepic");
             profilePicBox.appendChild(profilePic);
 
@@ -385,7 +387,7 @@ newWilder.appendChild(wildersHardSkills2);
             wildersHardSkills.classList.add("hardSkills");
             function createLanguageIcon(language) {
                 let hardSkillsPart = document.createElement("img");
-                hardSkillsPart.src = "assets/" + language.toLowerCase() +"-svg.svg";
+                hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
                 hardSkillsPart.classList.add("languageIcons");
                 wildersHardSkills.appendChild(hardSkillsPart);
             };
@@ -500,5 +502,4 @@ const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
     document.body.classList.toggle('dark');
-    document.querySelector(".profilePage").classList.toggle("dark");
 });
