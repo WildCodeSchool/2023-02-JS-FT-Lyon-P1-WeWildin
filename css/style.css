@@ -70,44 +70,166 @@ h1 {
 }
 
 
+/* PAGE D'ACCUEIL*/
+/* BACKGROUND ANIMATION */
 
-/* Footer */
-
-footer {
-  background-color: #FBB04C;
-  position: fixed;
-  bottom: 0;
+.animation-color {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  height: 3.5rem;
-}
-
-nav {
-  white-space: nowrap;
-}
-
-nav ul {
-  padding: 1rem;
-  margin: 0;
-}
-
-nav ul li {
-  list-style: none;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: black;
-}
-
-.adress {
-  margin-left: 12rem;
-  padding-right: 1rem;
+  height: 100%;
+  animation: pulse 20s infinite;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
 }
 
 
+@keyframes pulse {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: rgb(213, 162, 67);
+  }
+}
+
+/* Into the wild*/
+
+.typewriter h1 {
+  color: #fff;
+  font-family: monospace;
+  font-size: 68px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  top: 50%;
+  right: 0;
+  text-align: center;
+  overflow: hidden; /* Texte pas montré avant le début */
+  border-right: .15em solid transparent; /* curseur */
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: typing 3s steps(30, end), blink-caret .5s 4.5, opacityOff 100ms 3.7s forwards 1;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+/* FAIT DISPARAITRE LE 1er texte*/
+
+@keyframes opacityOff {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/*PRESENTATION*/
+
+.landing
+
+{position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+top: 20%;
+right: 0;
+text-align: center;}
+
+#name
+
+{
+  font-size: 60px;
+}
+
+#slogan{
+  font-size: 44px;
+}
+
+#website-description {
+font-size: 32px;
+}
+
+.animate {
+  animation-duration: 4s;
+  animation-name: animate-fade;
+  animation-delay: 4s;
+  animation-fill-mode: backwards;
+}
+    
+@keyframes animate-fade {
+    0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.animate.pop {
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+        
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+
+.delay-1 {
+  animation-delay: 4.1s;
+}
+    
+.delay-2 {
+  animation-delay: 4.2s;
+}
+    
+.delay-3 {
+  animation-delay: 4.3s;
+}
+
+/* BUTTON */
+
+#hover-1 {
+  background: linear-gradient(rgb(33, 33, 32) 0 0) left / var(--p,0) no-repeat;
+  color: #fff;
+  transition: .4s,background-position 0s;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px #813f02;
+}
+#hover-1:hover {
+  --p: 100%;
+  background-position: right;
+}
+
+button {
+  font-family: system-ui, sans-serif;
+  font-size: 5rem;
+  margin:0;
+  cursor: pointer;
+  padding: 0 .07em;
+}
 
 
 /* PAGE DE PROFIL */
@@ -282,167 +404,6 @@ nav ul li a {
   justify-content: space-around;
 }
 
-/* PAGE D'ACCUEIL*/
-/* BACKGROUND ANIMATION */
-
-.animation-color {
-  width: 100%;
-  height: 100%;
-  animation: pulse 20s infinite;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-}
-
-
-@keyframes pulse {
-  0% {
-    background-color: black;
-  }
-  100% {
-    background-color: rgb(213, 162, 67);
-  }
-}
-
-/* Into the wild*/
-
-.typewriter h1 {
-  color: #fff;
-  font-family: monospace;
-  font-size: 68px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  top: 50%;
-  right: 0;
-  text-align: center;
-  overflow: hidden; /* Texte pas montré avant le début */
-  border-right: .15em solid transparent; /* curseur */
-  white-space: nowrap; 
-  margin: 0 auto; 
-  letter-spacing: .15em; 
-  animation: typing 3s steps(30, end), blink-caret .5s 4.5, opacityOff 100ms 3.7s forwards 1;
-}
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
-}
-
-/* FAIT DISPARAITRE LE 1er texte*/
-
-@keyframes opacityOff {
-  0% {
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-
-/*PRESENTATION*/
-
-.landing
-
-{position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-top: 20%;
-right: 0;
-text-align: center;}
-
-#name
-
-{
-  font-size: 60px;
-}
-
-#slogan{
-  font-size: 44px;
-}
-
-#website-description {
-font-size: 32px;
-}
-
-.animate {
-  animation-duration: 4s;
-  animation-name: animate-fade;
-  animation-delay: 4s;
-  animation-fill-mode: backwards;
-}
-    
-@keyframes animate-fade {
-    0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-
-.animate.pop {
-  animation-name: animate-pop;
-  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
-}
-
-@keyframes animate-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-  }
-        
-  100% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-}
-
-
-.delay-1 {
-  animation-delay: 4.1s;
-}
-    
-.delay-2 {
-  animation-delay: 4.2s;
-}
-    
-.delay-3 {
-  animation-delay: 4.3s;
-}
-
-/* BUTTON */
-
-#hover-1 {
-  background: linear-gradient(rgb(33, 33, 32) 0 0) left / var(--p,0) no-repeat;
-  color: #fff;
-  transition: .4s,background-position 0s;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 10px #813f02;
-}
-#hover-1:hover {
-  --p: 100%;
-  background-position: right;
-}
-
-button {
-  font-family: system-ui, sans-serif;
-  font-size: 5rem;
-  margin:0;
-  cursor: pointer;
-  padding: 0 .07em;
-}
-
 /*MENTIONS LEGALES*/
 
 
@@ -478,6 +439,44 @@ margin: 0;
 .pf:hover {
 	border-color: #813f02;
 }
+
+/* Footer */
+
+footer {
+  background-color: #FBB04C;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  height: 3.5rem;
+}
+
+nav {
+  white-space: nowrap;
+}
+
+nav ul {
+  padding: 1rem;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.adress {
+  margin-left: 12rem;
+  padding-right: 1rem;
+}
+
+
 
 
 @media screen and (min-width: 768px){
