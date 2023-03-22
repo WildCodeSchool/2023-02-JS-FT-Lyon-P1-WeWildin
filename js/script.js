@@ -593,3 +593,92 @@ for (let i = 0; i < softSkillsGlobalArray.length; i++) {
         generateWilders();
     });
 }
+
+
+
+// Création d'un array pour lister toutes les hard skills contenues dans les objets wilder.
+
+let hardSkillsGlobalArray = [];
+
+for (let wilder of wilders) {
+    for (let i = 0; i < wilder.hardSkills.length; i++) {
+        if (hardSkillsGlobalArray === [] || hardSkillsGlobalArray.includes(wilder.hardSkills[i]) === false) {
+            hardSkillsGlobalArray.push(wilder.hardSkills[i]);
+        }
+    }
+}
+hardSkillsGlobalArray.sort();
+
+let filteredHardSkills = [];
+
+let hardSkillsFilterBlock = document.createElement("div");
+hardSkillsFilterBlock.classList.add("hardSkillFilterBlock");
+for (let i = 0; i < hardSkillsGlobalArray.length; i++) {
+    if (hardSkillsGlobalArray[i] === "HTML") {
+        createLanguageIcon("HTML");
+    } else if (hardSkillsGlobalArray[i] === "JavaScript") {
+        createLanguageIcon("JavaScript");
+    } else if (hardSkillsGlobalArray[i] === "Node.js") {
+        createLanguageIcon("Node");
+    } else if (hardSkillsGlobalArray[i] === "PHP") {
+        createLanguageIcon("PHP");
+    } else if (hardSkillsGlobalArray[i] === "React") {
+        createLanguageIcon("React");
+    } else if (hardSkillsGlobalArray[i] === "Python") {
+        createLanguageIcon("Python");
+    }
+
+    function createLanguageIcon(language) {
+        let newHardSkill = document.createElement("img");
+        newHardSkill.src = "assets/" + language.toLowerCase() + "-svg.svg";
+        newHardSkill.classList.add("languageIcons2");
+        hardSkillsFilterBlock.appendChild(newHardSkill);
+
+        newHardSkill.addEventListener("click", function () {
+            tempWildersArray = [];
+            let cardsToRemove = document.querySelectorAll(".wilderCard");
+            for (let i of cardsToRemove) {
+                i.remove();
+            };
+            newHardSkill.classList.toggle("selected");
+            console.log("tempArray before welection = " + tempWildersArray);
+            if (newHardSkill.classList.contains("selected") === true) {
+                filteredHardSkills.push(hardSkillsGlobalArray[i]);
+            } else {
+                let hardSkillIndex = filteredHardSkills.indexOf(hardSkillsGlobalArray[i]);
+                filteredHardSkills.splice(hardSkillIndex, 1);
+            }
+            console.log(filteredHardSkills);
+
+            for (let wilder of wilders) {
+                let count = 0;
+                for (let hardSkill in filteredHardSkills) {
+                    console.log("hardSkill is : " + filteredHardSkills[hardSkill]);
+
+                    if (wilder.hardSkills.includes(filteredHardSkills[hardSkill])) {
+                        count++;
+                        console.log(wilder.identifier + " has " + filteredHardSkills[hardSkill]);
+                        console.log(tempWildersArray);
+                        console.log(wilder.identifier);
+                        console.log(wilder.identifier + " " + count);
+                    }
+                    console.log("count is = " + count);
+                    console.log("filteredHardSkills is  = " + filteredHardSkills.length);
+                    if (count === filteredHardSkills.length) {
+                        tempWildersArray.push(wilder.identifier);
+                    }
+                }
+            }
+            console.log("tempArray after selection = " + tempWildersArray);
+            if (filteredHardSkills.length === 0) {
+                refillTempArray();
+                tempWildersArray.sort();
+            }
+            generateWilders();
+        });
+
+
+
+    };
+    menu.appendChild(hardSkillsFilterBlock);
+}
