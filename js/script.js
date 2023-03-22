@@ -228,6 +228,17 @@ const teodor = {
 // Array contenant tous les objets des wilders, classés par ordre alphabétique.
 const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
 
+for (let wilder of wilders) {
+    wilder.identifier = wilder.firstName + wilder.lastName;
+};
+
+let tempWildersArray = [];
+function refillTempArray() {
+    for (let wilder of wilders) {
+        tempWildersArray.push(wilder.identifier);
+    };
+}
+refillTempArray();
 
 let trombinoscope = document.getElementById("trombinoscope");
 
@@ -242,156 +253,42 @@ let activeProfile = false;
 
 //Cette boucle crée dynamiquement toutes les div des wilders au chargement de la page.
 
-for (let wilder of wilders) {
+function generateWilders() {
+    // console.log("generating wildcards for : " + tempWildersArray);
+    for (let wilder of wilders) {
+        if (tempWildersArray.includes(wilder.identifier)) {
+            // console.log("generating wildcards for : " + wilder.identifier);
+            // console.log("wilder is in tempArray " + tempWildersArray.includes(wilder.identifier))
 
-    let newWilder = document.createElement("div");
-    newWilder.classList.add('wilderCard');
-    newWilder.setAttribute('id', wilder.firstName);
-    trombinoscope.appendChild(newWilder);
+            let newWilder = document.createElement("div");
+            newWilder.classList.add('wilderCard');
+            newWilder.setAttribute('id', wilder.firstName);
+            trombinoscope.appendChild(newWilder);
 
-    let trombiPic = document.createElement("img");
-    trombiPic.classList.add("wilderPic");
-    trombiPic.setAttribute("id", wilder.firstName + "trombipic")
-    trombiPic.src = wilder.pic;
-    newWilder.appendChild(trombiPic);
+            let trombiPic = document.createElement("img");
+            trombiPic.classList.add("wilderPic");
+            trombiPic.setAttribute("id", wilder.firstName + "trombipic")
+            trombiPic.src = wilder.pic;
+            newWilder.appendChild(trombiPic);
 
-
-    let wildersName = document.createElement("h1");
-    wildersName.classList.add("profileName2");
-    wildersName.innerText = `${wilder.firstName}`;
-    newWilder.appendChild(wildersName);
-
-    /* Création hardskills wilders sur photo trombi*/
-
-
-    let wildersHardSkills2 = document.createElement("div");
-    wildersHardSkills2.classList.add("hardSkills2");
-    function createLanguageIcon(language) {
-        let hardSkillsPart = document.createElement("img");
-        hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
-        hardSkillsPart.classList.add("languageIcons2");
-        wildersHardSkills2.appendChild(hardSkillsPart);
-    };
-    newWilder.appendChild(wildersHardSkills2);
-
-    for (let i = 0; i < wilder.hardSkills.length; i++) {
-        if (wilder.hardSkills[i] === "HTML") {
-            createLanguageIcon("HTML");
-        } else if (wilder.hardSkills[i] === "JavaScript") {
-            createLanguageIcon("JavaScript");
-        } else if (wilder.hardSkills[i] === "Node.js") {
-            createLanguageIcon("Node");
-        } else if (wilder.hardSkills[i] === "PHP") {
-            createLanguageIcon("PHP");
-        } else if (wilder.hardSkills[i] === "React") {
-            createLanguageIcon("React");
-        } else if (wilder.hardSkills[i] === "Python") {
-            createLanguageIcon("Python");
-        }
-        newWilder.appendChild(wildersHardSkills2);
-
-    }
-
-
-    //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
-
-    newWilder.addEventListener("click", createProfilePage);
-
-    function createProfilePage() {
-        if (activeProfile === false) {
-            activeProfile = true;
-            trombinoscope.style.display = "none";
-
-            let profilePage = document.createElement("div");
-            profilePage.setAttribute("id", "profile" + wilder.firstName);
-            profilePage.classList.add("profilePage");
-            profilePage.classList.add("active");
-            document.body.appendChild(profilePage);
-            // profilePage.before(document.getElementsByTagName("footer"));
-
-            let closeButton = document.createElement("button");
-            closeButton.innerText = "X";
-            closeButton.type = "button";
-            closeButton.ariaLabel = "Close";
-            closeButton.classList.add("closeButton");
-            closeButton.addEventListener("click", function () {
-                profilePage.remove();
-                activeProfile = false;
-                trombinoscope.style.display = "grid";
-            });
-            profilePage.appendChild(closeButton);
-
-            // Création de la partie du haut du profil avec la photo de profil et les soft skills.
-
-            let profileDivTop = document.createElement("div");
-            profileDivTop.classList.add("profileDivTop");
-            profilePage.appendChild(profileDivTop);
-
-            let profilePicBox = document.createElement("div");
-            profilePicBox.classList.add("profilePicBox");
-            profileDivTop.appendChild(profilePicBox);
-
-            let profilePic = trombiPic.cloneNode();
-            profilePic.classList.add("profilePic");
-            profilePic.classList.remove("wilderPic")
-            profilePic.setAttribute("id", wilder.firstName + "profilepic");
-            profilePicBox.appendChild(profilePic);
-
-            let softSkillsBlock = document.createElement("div");
-            profileDivTop.appendChild(softSkillsBlock);
-            softSkillsBlock.classList.add("softSkillsBlock");
-            profileDivTop.appendChild(softSkillsBlock);
-
-            let softSkillsTitle = document.createElement("p");
-            softSkillsTitle.classList.add("profileTitle");
-            softSkillsTitle.innerText = "Mes soft skills :";
-            softSkillsBlock.appendChild(softSkillsTitle);
-
-            let wildersSoftSkills = document.createElement("ul");
-            wildersSoftSkills.classList.add("softSkills");
-            for (let i = 0; i < wilder.softSkills.length; i++) {
-                let softSkillsPart = document.createElement("li");
-                softSkillsPart.innerText = wilder.softSkills[i];
-                wildersSoftSkills.appendChild(softSkillsPart);
-            }
-            softSkillsBlock.appendChild(wildersSoftSkills);
-
-            // Création de la partie du milieu du profil, contenant le nom et l'âge du wilder.
-
-            let profileDivMiddle = document.createElement("div");
-            profileDivMiddle.classList.add("profileDivMiddle");
-            profilePage.appendChild(profileDivMiddle);
 
             let wildersName = document.createElement("h1");
-            wildersName.classList.add("profileName");
-            wildersName.innerText = `${wilder.firstName} ${wilder.lastName}`;
-            profileDivMiddle.appendChild(wildersName);
+            wildersName.classList.add("profileName2");
+            wildersName.innerText = `${wilder.firstName}`;
+            newWilder.appendChild(wildersName);
 
-            let wildersAge = document.createElement("p");
-            wildersAge.classList.add("age");
-            wildersAge.innerText = wilder.age + " ans";
-            profileDivMiddle.appendChild(wildersAge);
+            /* Création hardskills wilders sur photo trombi*/
 
-            // Création de la ligne des hard skills du wilder.
 
-            let hardSkillsBlock = document.createElement("div");
-            hardSkillsBlock.classList.add("hardSkillsBlock");
-            profilePage.appendChild(hardSkillsBlock);
-
-            let hardSkillsTitle = document.createElement("p");
-            hardSkillsTitle.classList.add("profileTitle");
-            hardSkillsTitle.innerText = "Ma boîte à outils :";
-            hardSkillsBlock.appendChild(hardSkillsTitle);
-
-            let wildersHardSkills = document.createElement("div");
-            wildersHardSkills.classList.add("hardSkills");
+            let wildersHardSkills2 = document.createElement("div");
+            wildersHardSkills2.classList.add("hardSkills2");
             function createLanguageIcon(language) {
                 let hardSkillsPart = document.createElement("img");
                 hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
-                hardSkillsPart.classList.add("languageIcons");
-                wildersHardSkills.appendChild(hardSkillsPart);
+                hardSkillsPart.classList.add("languageIcons2");
+                wildersHardSkills2.appendChild(hardSkillsPart);
             };
-            hardSkillsBlock.appendChild(wildersHardSkills);
+            newWilder.appendChild(wildersHardSkills2);
 
             for (let i = 0; i < wilder.hardSkills.length; i++) {
                 if (wilder.hardSkills[i] === "HTML") {
@@ -407,93 +304,215 @@ for (let wilder of wilders) {
                 } else if (wilder.hardSkills[i] === "Python") {
                     createLanguageIcon("Python");
                 }
+                newWilder.appendChild(wildersHardSkills2);
+
             }
-            profilePage.appendChild(wildersHardSkills);
 
-            // Création de la partie du bas du profil, contenant la bio, les raisons de la reconversion, les projets et les objectifs.
 
-            let profileDivBottom = document.createElement("div");
-            profileDivBottom.classList.add("profileDivBottom");
-            profilePage.appendChild(profileDivBottom);
+            //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
 
-            let bioTitle = document.createElement("p");
-            bioTitle.classList.add("profileTitle");
-            bioTitle.innerText = "Bio :";
-            profileDivBottom.appendChild(bioTitle);
+            newWilder.addEventListener("click", createProfilePage);
 
-            let wildersBio = document.createElement("ul");
-            wildersBio.classList.add("bio");
-            for (let i = 0; i < wilder.bio.length; i++) {
-                let bioPart = document.createElement("li");
-                bioPart.innerText = wilder.bio[i];
-                wildersBio.appendChild(bioPart);
-            }
-            profileDivBottom.appendChild(wildersBio);
+            function createProfilePage() {
+                if (activeProfile === false) {
+                    activeProfile = true;
+                    trombinoscope.style.display = "none";
 
-            let whyDevTitle = document.createElement("p");
-            whyDevTitle.classList.add("profileTitle");
-            whyDevTitle.innerText = "Pourquoi j'ai choisi le dev :";
-            profileDivBottom.appendChild(whyDevTitle);
+                    let profilePage = document.createElement("div");
+                    profilePage.setAttribute("id", "profile" + wilder.firstName);
+                    profilePage.classList.add("profilePage");
+                    profilePage.classList.add("active");
+                    document.body.appendChild(profilePage);
+                    // profilePage.before(document.getElementsByTagName("footer"));
 
-            let whyDev = document.createElement("p");
-            whyDev.classList.add("whyDev");
-            whyDev.innerText = wilder.resonsWhyDev;
-            profileDivBottom.appendChild(whyDev);
+                    let closeButton = document.createElement("button");
+                    closeButton.innerText = "X";
+                    closeButton.type = "button";
+                    closeButton.ariaLabel = "Close";
+                    closeButton.classList.add("closeButton");
+                    closeButton.addEventListener("click", function () {
+                        profilePage.remove();
+                        activeProfile = false;
+                        trombinoscope.style.display = "grid";
+                    });
+                    profilePage.appendChild(closeButton);
 
-            if (wilder.projects[0]) {
-                let projects = document.createElement("ul");
-                projects.classList.add("projects");
+                    // Création de la partie du haut du profil avec la photo de profil et les soft skills.
 
-                for (let i = 0; i < wilder.projects.length; i++) {
-                    if (i === 0) {
-                        let projectTitle = document.createElement("p");
-                        projectTitle.classList.add("profileTitle");
-                        projectTitle.innerText = "Mes projets :";
-                        profileDivBottom.appendChild(projectTitle);
+                    let profileDivTop = document.createElement("div");
+                    profileDivTop.classList.add("profileDivTop");
+                    profilePage.appendChild(profileDivTop);
+
+                    let profilePicBox = document.createElement("div");
+                    profilePicBox.classList.add("profilePicBox");
+                    profileDivTop.appendChild(profilePicBox);
+
+                    let profilePic = trombiPic.cloneNode();
+                    profilePic.classList.add("profilePic");
+                    profilePic.classList.remove("wilderPic")
+                    profilePic.setAttribute("id", wilder.firstName + "profilepic");
+                    profilePicBox.appendChild(profilePic);
+
+                    let softSkillsBlock = document.createElement("div");
+                    profileDivTop.appendChild(softSkillsBlock);
+                    softSkillsBlock.classList.add("softSkillsBlock");
+                    profileDivTop.appendChild(softSkillsBlock);
+
+                    let softSkillsTitle = document.createElement("p");
+                    softSkillsTitle.classList.add("profileTitle");
+                    softSkillsTitle.innerText = "Mes soft skills :";
+                    softSkillsBlock.appendChild(softSkillsTitle);
+
+                    let wildersSoftSkills = document.createElement("ul");
+                    wildersSoftSkills.classList.add("softSkills");
+                    for (let i = 0; i < wilder.softSkills.length; i++) {
+                        let softSkillsPart = document.createElement("li");
+                        softSkillsPart.innerText = wilder.softSkills[i];
+                        wildersSoftSkills.appendChild(softSkillsPart);
                     }
-                    let newProject = document.createElement("li");
-                    newProject.classList.add("projectLine");
-                    newProject.innerHTML = `<a href = "${wilder.projects[i]}"> Projet ${i + 1}</a>`
-                    projects.appendChild(newProject);
+                    softSkillsBlock.appendChild(wildersSoftSkills);
+
+                    // Création de la partie du milieu du profil, contenant le nom et l'âge du wilder.
+
+                    let profileDivMiddle = document.createElement("div");
+                    profileDivMiddle.classList.add("profileDivMiddle");
+                    profilePage.appendChild(profileDivMiddle);
+
+                    let wildersName = document.createElement("h1");
+                    wildersName.classList.add("profileName");
+                    wildersName.innerText = `${wilder.firstName} ${wilder.lastName}`;
+                    profileDivMiddle.appendChild(wildersName);
+
+                    let wildersAge = document.createElement("p");
+                    wildersAge.classList.add("age");
+                    wildersAge.innerText = wilder.age + " ans";
+                    profileDivMiddle.appendChild(wildersAge);
+
+                    // Création de la ligne des hard skills du wilder.
+
+                    let hardSkillsBlock = document.createElement("div");
+                    hardSkillsBlock.classList.add("hardSkillsBlock");
+                    profilePage.appendChild(hardSkillsBlock);
+
+                    let hardSkillsTitle = document.createElement("p");
+                    hardSkillsTitle.classList.add("profileTitle");
+                    hardSkillsTitle.innerText = "Ma boîte à outils :";
+                    hardSkillsBlock.appendChild(hardSkillsTitle);
+
+                    let wildersHardSkills = document.createElement("div");
+                    wildersHardSkills.classList.add("hardSkills");
+                    function createLanguageIcon(language) {
+                        let hardSkillsPart = document.createElement("img");
+                        hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
+                        hardSkillsPart.classList.add("languageIcons");
+                        wildersHardSkills.appendChild(hardSkillsPart);
+                    };
+                    hardSkillsBlock.appendChild(wildersHardSkills);
+
+                    for (let i = 0; i < wilder.hardSkills.length; i++) {
+                        if (wilder.hardSkills[i] === "HTML") {
+                            createLanguageIcon("HTML");
+                        } else if (wilder.hardSkills[i] === "JavaScript") {
+                            createLanguageIcon("JavaScript");
+                        } else if (wilder.hardSkills[i] === "Node.js") {
+                            createLanguageIcon("Node");
+                        } else if (wilder.hardSkills[i] === "PHP") {
+                            createLanguageIcon("PHP");
+                        } else if (wilder.hardSkills[i] === "React") {
+                            createLanguageIcon("React");
+                        } else if (wilder.hardSkills[i] === "Python") {
+                            createLanguageIcon("Python");
+                        }
+                    }
+                    profilePage.appendChild(wildersHardSkills);
+
+                    // Création de la partie du bas du profil, contenant la bio, les raisons de la reconversion, les projets et les objectifs.
+
+                    let profileDivBottom = document.createElement("div");
+                    profileDivBottom.classList.add("profileDivBottom");
+                    profilePage.appendChild(profileDivBottom);
+
+                    let bioTitle = document.createElement("p");
+                    bioTitle.classList.add("profileTitle");
+                    bioTitle.innerText = "Bio :";
+                    profileDivBottom.appendChild(bioTitle);
+
+                    let wildersBio = document.createElement("ul");
+                    wildersBio.classList.add("bio");
+                    for (let i = 0; i < wilder.bio.length; i++) {
+                        let bioPart = document.createElement("li");
+                        bioPart.innerText = wilder.bio[i];
+                        wildersBio.appendChild(bioPart);
+                    }
+                    profileDivBottom.appendChild(wildersBio);
+
+                    let whyDevTitle = document.createElement("p");
+                    whyDevTitle.classList.add("profileTitle");
+                    whyDevTitle.innerText = "Pourquoi j'ai choisi le dev :";
+                    profileDivBottom.appendChild(whyDevTitle);
+
+                    let whyDev = document.createElement("p");
+                    whyDev.classList.add("whyDev");
+                    whyDev.innerText = wilder.resonsWhyDev;
+                    profileDivBottom.appendChild(whyDev);
+
+                    if (wilder.projects[0]) {
+                        let projects = document.createElement("ul");
+                        projects.classList.add("projects");
+
+                        for (let i = 0; i < wilder.projects.length; i++) {
+                            if (i === 0) {
+                                let projectTitle = document.createElement("p");
+                                projectTitle.classList.add("profileTitle");
+                                projectTitle.innerText = "Mes projets :";
+                                profileDivBottom.appendChild(projectTitle);
+                            }
+                            let newProject = document.createElement("li");
+                            newProject.classList.add("projectLine");
+                            newProject.innerHTML = `<a href = "${wilder.projects[i]}"> Projet ${i + 1}</a>`
+                            projects.appendChild(newProject);
+                        }
+                        profileDivBottom.appendChild(projects);
+                    }
+
+                    let objectivesTitle = document.createElement("p");
+                    objectivesTitle.classList.add("profileTitle");
+                    objectivesTitle.innerText = "Mes objectifs à court terme :";
+                    profileDivBottom.appendChild(objectivesTitle);
+
+                    let objectives = document.createElement("div");
+                    objectives.classList.add("objectives");
+                    objectives.innerText = wilder.objectives;
+                    profileDivBottom.appendChild(objectives);
+
+                    // Création de la ligne des icônes avec liens hypertextes pour les contacts et réseaux sociaux des wilders.
+
+                    let socialIcons = document.createElement("div");
+                    socialIcons.classList.add("socialIcons");
+                    profilePage.appendChild(socialIcons);
+
+                    let githubIcon = document.createElement("a");
+                    githubIcon.href = wilder.gitHub;
+                    githubIcon.innerHTML = "<img src = 'assets/github_nr_48px.png'></img>";
+                    socialIcons.appendChild(githubIcon);
+
+
+                    let linkedinIcon = document.createElement("a");
+                    linkedinIcon.href = wilder.linkedIn;
+                    linkedinIcon.innerHTML = "<img src = 'assets/linkedin_nr_48px.png'></img>";
+                    socialIcons.appendChild(linkedinIcon);
+
+                    let mailIcon = document.createElement("a");
+                    mailIcon.href = wilder.mail;
+                    mailIcon.innerHTML = "<img src = 'assets/mail_nr_48px.png'></img>";
+                    socialIcons.appendChild(mailIcon);
                 }
-                profileDivBottom.appendChild(projects);
             }
-
-            let objectivesTitle = document.createElement("p");
-            objectivesTitle.classList.add("profileTitle");
-            objectivesTitle.innerText = "Mes objectifs à court terme :";
-            profileDivBottom.appendChild(objectivesTitle);
-
-            let objectives = document.createElement("div");
-            objectives.classList.add("objectives");
-            objectives.innerText = wilder.objectives;
-            profileDivBottom.appendChild(objectives);
-
-            // Création de la ligne des icônes avec liens hypertextes pour les contacts et réseaux sociaux des wilders.
-
-            let socialIcons = document.createElement("div");
-            socialIcons.classList.add("socialIcons");
-            profilePage.appendChild(socialIcons);
-
-            let githubIcon = document.createElement("a");
-            githubIcon.href = wilder.gitHub;
-            githubIcon.innerHTML = "<img src = 'assets/github_nr_48px.png'></img>";
-            socialIcons.appendChild(githubIcon);
-
-
-            let linkedinIcon = document.createElement("a");
-            linkedinIcon.href = wilder.linkedIn;
-            linkedinIcon.innerHTML = "<img src = 'assets/linkedin_nr_48px.png'></img>";
-            socialIcons.appendChild(linkedinIcon);
-
-            let mailIcon = document.createElement("a");
-            mailIcon.href = wilder.mail;
-            mailIcon.innerHTML = "<img src = 'assets/mail_nr_48px.png'></img>";
-            socialIcons.appendChild(mailIcon);
         }
-    }
 
+    }
 }
+generateWilders();
 
 
 /* DARK MODE */
@@ -517,9 +536,10 @@ for (let wilder of wilders) {
 softSkillsGlobalArray.sort();
 
 
+
 let menu = document.querySelector(".softSkillsFilter");
-let softSkillsFilterArray = [];
-let filteredWilders = [];
+
+let filteredSoftSkills = [];
 
 for (let i = 0; i < softSkillsGlobalArray.length; i++) {
     let newSoftSkill = document.createElement("li");
@@ -528,29 +548,48 @@ for (let i = 0; i < softSkillsGlobalArray.length; i++) {
     newSoftSkill.innerText = softSkillsGlobalArray[i];
     menu.appendChild(newSoftSkill);
 
-    // création d'un eventListener pour générer
+    // création d'un eventListener pour générer dynamiquement le trombi en fonction des soft skills sélectionnées.
 
     newSoftSkill.addEventListener("click", function () {
+        tempWildersArray = [];
+        let cardsToRemove = document.querySelectorAll(".wilderCard");
+        for (let i of cardsToRemove) {
+            i.remove();
+        };
         newSoftSkill.classList.toggle("selected");
+        console.log("tempArray before welection = " + tempWildersArray);
         if (newSoftSkill.classList.contains("selected") === true) {
-            console.log(newSoftSkill + " is selected")
-            for (let wilder of wilders) {
-                console.log(wilder.firstName);
-                if (wilder.softSkills.includes(softSkillsGlobalArray[i]) === false) {
-                    console.log(wilder.softSkills.includes(softSkillsGlobalArray[i]));
-                    filteredWilders.push(wilder.firstName.toLowerCase())
-                }
-            }
+            filteredSoftSkills.push(softSkillsGlobalArray[i]);
         } else {
-            console.log(newSoftSkill + " is not selected anymore")
-            for (let wilder of wilders) {
-                console.log(wilder.firstName);
-                if (wilder.softSkills.includes(softSkillsGlobalArray[i]) === true) {
-                    console.log(wilder.softSkills.includes(softSkillsGlobalArray[i]));
-                    let wilderIndex = filteredWilders.indexOf(wilder.firstName.toLowerCase());
-                    filteredWilders.splice(wilderIndex, 1);
+            let softSkillIndex = filteredSoftSkills.indexOf(softSkillsGlobalArray[i]);
+            filteredSoftSkills.splice(softSkillIndex, 1);
+        }
+        console.log(filteredSoftSkills);
+
+        for (let wilder of wilders) {
+            let count = 0;
+            for (let softSkill in filteredSoftSkills) {
+                console.log("softSkill is : " + filteredSoftSkills[softSkill]);
+
+                if (wilder.softSkills.includes(filteredSoftSkills[softSkill])) {
+                    count++;
+                    console.log(wilder.identifier + " has " + filteredSoftSkills[softSkill]);
+                    console.log(tempWildersArray);
+                    console.log(wilder.identifier);
+                    console.log(wilder.identifier + " " + count);
+                }
+                console.log("count is = " + count);
+                console.log("filteredSoftSkills is  = " + filteredSoftSkills.length);
+                if (count === filteredSoftSkills.length) {
+                    tempWildersArray.push(wilder.identifier);
                 }
             }
         }
+        console.log("tempArray after selection = " + tempWildersArray);
+        if (filteredSoftSkills.length === 0) {
+            refillTempArray();
+            tempWildersArray.sort();
+        }
+        generateWilders();
     });
 }

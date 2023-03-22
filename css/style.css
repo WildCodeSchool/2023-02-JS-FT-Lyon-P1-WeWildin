@@ -93,6 +93,16 @@ header {
   transition: transform 0.2s linear;
 }
 
+.menu {
+  position: absolute;
+  top: 0;
+}
+
+.selected {
+  background-color: grey;
+  ;
+}
+
 /*target the ball inside button*/
 .checkbox:checked+.label .ball {
   transform: translateX(24px);
