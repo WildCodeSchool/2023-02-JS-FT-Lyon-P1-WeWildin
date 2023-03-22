@@ -1,5 +1,3 @@
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,24 +6,33 @@
 }
 
 body {
+  --bg-transition: background-color .5s linear;
+  --color-transition: color .5s linear;
+  --main-color: #FBB04C;
+  --secondary-color: #F8EEE1;
+  --third-color: #273E47;
   line-height: 1.5;
-  background-color: #F8EEE1;
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 /* DARK MODE */
 
 body.dark {
-  background-color: #121212;
-  color: #FFFFFF;
+  --main-color: #ac762f;
+  /* --secondary-color: #121212; */
+  --secondary-color: #273E47;
+  --third-color: #f8dfbf;
 }
-
 
 /*HEADER*/
 
-
 header {
-  background-color: #FBB04C;
-  color: #121212;
+  z-index: 5;
+  transition: var(--bg-transition), var(--color-transition);
+  background-color: var(--main-color);
+  color: var(--third-color);
   position: fixed;
   width: 100%;
   top: 0;
@@ -37,7 +44,6 @@ header {
   margin: auto;
   display: flex;
   align-items: center;
-
 }
 
 .title {
@@ -50,7 +56,7 @@ header {
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   .button {
     position: absolute;
     margin-left: 80%;
@@ -91,6 +97,169 @@ header {
   transform: translateX(24px);
 }
 
+
+/* PAGE D'ACCUEIL*/
+/* BACKGROUND ANIMATION */
+
+.animation-color {
+  width: 100%;
+  height: 100%;
+  animation: pulse 20s infinite;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+
+@keyframes pulse {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: rgb(213, 162, 67);
+  }
+}
+
+/* Into the wild*/
+
+.typewriter h1 {
+  color: #fff;
+  font-family: monospace;
+  font-size: 68px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  top: 50%;
+  right: 0;
+  text-align: center;
+  overflow: hidden; /* Texte pas montré avant le début */
+  border-right: .15em solid transparent; /* curseur */
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: typing 3s steps(30, end), blink-caret .5s 4.5, opacityOff 100ms 3.7s forwards 1;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+/* FAIT DISPARAITRE LE 1er texte*/
+
+@keyframes opacityOff {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/*PRESENTATION*/
+
+.landing
+
+{position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+top: 20%;
+right: 0;
+text-align: center;}
+
+#name
+
+{
+  font-size: 60px;
+}
+
+#slogan{
+  font-size: 44px;
+}
+
+#website-description {
+font-size: 32px;
+}
+
+.animate {
+  animation-duration: 4s;
+  animation-name: animate-fade;
+  animation-delay: 4s;
+  animation-fill-mode: backwards;
+}
+    
+@keyframes animate-fade {
+    0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.animate.pop {
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+        
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+
+.delay-1 {
+  animation-delay: 4.1s;
+}
+    
+.delay-2 {
+  animation-delay: 4.2s;
+}
+    
+.delay-3 {
+  animation-delay: 4.3s;
+}
+
+/* BUTTON */
+
+#hover-1 {
+  background: linear-gradient(rgb(33, 33, 32) 0 0) left / var(--p,0) no-repeat;
+  color: #fff;
+  transition: .4s,background-position 0s;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px #813f02;
+}
+#hover-1:hover {
+  --p: 100%;
+  background-position: right;
+}
+
+button {
+  font-family: system-ui, sans-serif;
+  font-size: 5rem;
+  margin:0;
+  cursor: pointer;
+  padding: 0 .07em;
+}
+
+
 /* PAGE DE PROFIL */
 
 .profilePage {
@@ -110,11 +279,6 @@ header {
   font-size: calc(1em + 0.5vw);
 }
 
-.profilePage.dark {
-  background-color: #121212;
-  color: #F8EEE1;
-}
-
 .closeButton {
   line-height: 1;
   position: absolute;
@@ -126,11 +290,12 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #273E47;
+  color: var(--third-color);
   border: none;
   background-color: #1fe0;
   font-size: 2em;
-  border: 1px solid black;
+  border: 1px solid var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 /* PHOTOS ET SOFT SKILLS */
@@ -150,9 +315,10 @@ header {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
-  background-color: #FBB04C;
+  background-color: var(--main-color);
   border-radius: 0px 0px 10px 0px;
-  box-shadow: 2px 2px 30px black;
+  box-shadow: 1px 1px 30px var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .profilePic {
@@ -253,6 +419,10 @@ header {
   list-style-type: none;
 }
 
+.projects a {
+  text-decoration-line: underline;
+}
+
 /* ICONES DES RESEAUX SOCIAUX */
 
 .socialIcons {
@@ -263,12 +433,55 @@ header {
   justify-content: space-around;
 }
 
+/*MENTIONS LEGALES*/
 
+
+.mentions-center
+{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  text-align: center;
+}
+
+.mentions-center > h1 {
+color: black;
+margin-top: 8rem;
+}
+
+.container {
+	width: 70%;
+	height: 290px;
+	overflow: scroll;
+	margin: 0 auto;
+	text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.pf {
+	padding: 1em;
+	background-color: #eee;
+	color: #555;
+	border: 5px solid #555;
+}
+
+.pf:hover {
+	border-color: #813f02;
+}
+
+@media screen and (min-width: 768px){
+  .container {
+    width: 70%;
+    height: 425px;
+  }
+}
 
 /* Footer */
 
 footer {
-  background-color: #fbaf4b;
+  z-index: 5;
+  transition: var(--bg-transition), var(--color-transition);
+  background-color: var(--main-color);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -297,21 +510,37 @@ nav ul li {
   line-height: 1.5rem;
 }
 
+a {
+  transition: var(--bg-transition), var(--color-transition);
+  text-decoration: none;
+  color: var(--third-color);
+  font-weight: bold;
+}
+
+a:visited {
+  transition: var(--bg-transition), var(--color-transition);
+  text-decoration: none;
+  text-decoration-line: none;
+  color: var(--third-color);
+  font-weight: bold;
+}
+
 nav ul li a {
   text-decoration: none;
-  color: black;
+  color: var(--third-color);
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .adress {
   margin-left: 12rem;
   padding-right: 1rem;
   white-space: pre;
-
 }
 
 
 /*Mise en page trombi*/
 #trombinoscope {
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 40px;
@@ -331,13 +560,14 @@ nav ul li a {
 .wilderPic {
   width: 191.61px;
   height: 360px;
-  background-color: #fbb04ccc;
+  background-color: var(--main-color);
   border-radius: 10px;
   box-shadow: 10px 5px 5px rgb(188, 182, 182);
-  transition: background-color 400ms linear;
+  transition: var(--bg-transition), var(--color-transition);
 }
 
 .wilderCard:hover .wilderPic {
+  z-index: 3;
   transform: scale(1.2);
   background-color: #121212;
 }
@@ -350,7 +580,6 @@ nav ul li a {
   align-items: center;
   margin-right: auto;
   margin-left: auto;
- 
 }
 
 .profileName2 {
@@ -360,6 +589,7 @@ nav ul li a {
 
 /*hardSkills*/
 .hardSkills2 {
+  z-index: 4;
   display: flex;
   position: relative;
   top: -70px;
@@ -374,14 +604,13 @@ nav ul li a {
 
 /*mise en page name sur card*/
 .wilderCard:hover .profileName2 {
+  z-index: 4;
   display: flex;
   position: relative;
-  text-align :center;
+  text-align: center;
   top: -70px;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 24px;
-  color:#F8EEE1 ;
+  color: #F8EEE1;
   border-radius: 5px;
- 
-
 }
