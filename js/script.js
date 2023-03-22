@@ -102,7 +102,7 @@ const vanessa = {
     firstName: "Vanessa",
     age: 35,
     bio: ["Assistante médicale depuis 2009 dans un centre de lutte contre le cancer.", "Management d'une équipe de 9 AM pendant 3 ans.", "Février 2023 : début WCS"],
-    softSkills: ["Autonomie et capacité d’adaptation", "Etre organisé", "Esprit d’équipe et communication", "Patience", "Créativité"],
+    softSkills: ["Autonomie et capacité d’adaptation", "Organisation", "Esprit d’équipe et communication", "Patience", "Créativité"],
     hardSkills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
     resonsWhyDev: "J'ai toujours été attirée par la tech et le dev web pour la résolution des problèmes et la créativité.",
     projects: [],
@@ -255,6 +255,44 @@ for (let wilder of wilders) {
     trombiPic.src = wilder.pic;
     newWilder.appendChild(trombiPic);
 
+
+    let wildersName = document.createElement("h1");
+    wildersName.classList.add("profileName2");
+    wildersName.innerText = `${wilder.firstName}`;
+    newWilder.appendChild(wildersName);
+
+    /* Création hardskills wilders sur photo trombi*/
+
+
+    let wildersHardSkills2 = document.createElement("div");
+    wildersHardSkills2.classList.add("hardSkills2");
+    function createLanguageIcon(language) {
+        let hardSkillsPart = document.createElement("img");
+        hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
+        hardSkillsPart.classList.add("languageIcons2");
+        wildersHardSkills2.appendChild(hardSkillsPart);
+    };
+    newWilder.appendChild(wildersHardSkills2);
+
+    for (let i = 0; i < wilder.hardSkills.length; i++) {
+        if (wilder.hardSkills[i] === "HTML") {
+            createLanguageIcon("HTML");
+        } else if (wilder.hardSkills[i] === "JavaScript") {
+            createLanguageIcon("JavaScript");
+        } else if (wilder.hardSkills[i] === "Node.js") {
+            createLanguageIcon("Node");
+        } else if (wilder.hardSkills[i] === "PHP") {
+            createLanguageIcon("PHP");
+        } else if (wilder.hardSkills[i] === "React") {
+            createLanguageIcon("React");
+        } else if (wilder.hardSkills[i] === "Python") {
+            createLanguageIcon("Python");
+        }
+        newWilder.appendChild(wildersHardSkills2);
+
+    }
+
+
     //Création dynamique d'une page de profil correspondant au wilder sur la photo duquel on a cliqué via un eventListener.
 
     newWilder.addEventListener("click", createProfilePage);
@@ -269,6 +307,7 @@ for (let wilder of wilders) {
             profilePage.classList.add("profilePage");
             profilePage.classList.add("active");
             document.body.appendChild(profilePage);
+            // profilePage.before(document.getElementsByTagName("footer"));
 
             let closeButton = document.createElement("button");
             closeButton.innerText = "X";
@@ -278,7 +317,7 @@ for (let wilder of wilders) {
             closeButton.addEventListener("click", function () {
                 profilePage.remove();
                 activeProfile = false;
-                trombinoscope.style.display = "block";
+                trombinoscope.style.display = "grid";
             });
             profilePage.appendChild(closeButton);
 
@@ -294,6 +333,7 @@ for (let wilder of wilders) {
 
             let profilePic = trombiPic.cloneNode();
             profilePic.classList.add("profilePic");
+            profilePic.classList.remove("wilderPic")
             profilePic.setAttribute("id", wilder.firstName + "profilepic");
             profilePicBox.appendChild(profilePic);
 
@@ -343,42 +383,32 @@ for (let wilder of wilders) {
             hardSkillsTitle.innerText = "Ma boîte à outils :";
             hardSkillsBlock.appendChild(hardSkillsTitle);
 
-            let wildersHardSkills = document.createElement("ul");
+            let wildersHardSkills = document.createElement("div");
             wildersHardSkills.classList.add("hardSkills");
-            for (let i = 0; i < wilder.hardSkills.length; i++) {
-                let hardSkillsPart = document.createElement("li");
-                hardSkillsPart.innerText = wilder.hardSkills[i];
+            function createLanguageIcon(language) {
+                let hardSkillsPart = document.createElement("img");
+                hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
+                hardSkillsPart.classList.add("languageIcons");
                 wildersHardSkills.appendChild(hardSkillsPart);
-            }
+            };
             hardSkillsBlock.appendChild(wildersHardSkills);
 
-            // let wildersHardSkills = document.createElement("div");
-            // wildersHardSkills.classList.add("hardSkills");
-            // for (let i = 0; i < wilder.hardSkills.length; i++) {
-            //     let wild
-            //     if (wilder.hardSkills[i] === "HTML") {
-            //         let hardSkillsPart = document.createElement("div");
-            //         hardSkillsPart.innerHTML = HTMLIcon;
-            //         wildersHardSkills.appendChild(hardSkillsPart);
-            //     } else if (wilder.hardSkills[i] === "JavaScript") {
-            //         let hardSkillsPart = document.createElement("div");
-            //         hardSkillsPart.classList.add("JSIcon");
-            //         hardSkillsPart.innerHTML = JSIcon;
-            //         wildersHardSkills.appendChild(hardSkillsPart);
-            //     } else if (wilder.hardSkills[i] === "Node.js") {
-            //         let hardSkillsPart = document.createElement("div");
-            //         hardSkillsPart.classList.add("NodeIcon");
-            //         hardSkillsPart.innerHTML = nodeIcon;
-            //         wildersHardSkills.appendChild(hardSkillsPart);
-            //     } else if (wilder.hardSkills[i] === "PHP") {
-            //         let hardSkillsPart = document.createElement("div");
-            //         hardSkillsPart.classList.add("PHPIcon");
-            //         hardSkillsPart.innerHTML = PHPIcon;
-            //         wildersHardSkills.appendChild(hardSkillsPart);
-            //     }
-            // }
-
-            // profilePage.appendChild(wildersHardSkills);
+            for (let i = 0; i < wilder.hardSkills.length; i++) {
+                if (wilder.hardSkills[i] === "HTML") {
+                    createLanguageIcon("HTML");
+                } else if (wilder.hardSkills[i] === "JavaScript") {
+                    createLanguageIcon("JavaScript");
+                } else if (wilder.hardSkills[i] === "Node.js") {
+                    createLanguageIcon("Node");
+                } else if (wilder.hardSkills[i] === "PHP") {
+                    createLanguageIcon("PHP");
+                } else if (wilder.hardSkills[i] === "React") {
+                    createLanguageIcon("React");
+                } else if (wilder.hardSkills[i] === "Python") {
+                    createLanguageIcon("Python");
+                }
+            }
+            profilePage.appendChild(wildersHardSkills);
 
             // Création de la partie du bas du profil, contenant la bio, les raisons de la reconversion, les projets et les objectifs.
 
@@ -399,10 +429,6 @@ for (let wilder of wilders) {
                 wildersBio.appendChild(bioPart);
             }
             profileDivBottom.appendChild(wildersBio);
-
-            // let wildersHardSkills = document.createElement("div");
-            // for (let i = 0; i < wilder.hardSkills.length; i++) {
-            // }
 
             let whyDevTitle = document.createElement("p");
             whyDevTitle.classList.add("profileTitle");
@@ -466,7 +492,9 @@ for (let wilder of wilders) {
             socialIcons.appendChild(mailIcon);
         }
     }
+
 }
+
 
 /* DARK MODE */
 
