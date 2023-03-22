@@ -1,4 +1,4 @@
-@import url();
+
 
 * {
   box-sizing: border-box;
@@ -268,7 +268,7 @@ header {
 /* Footer */
 
 footer {
-  background-color: #FBB04C;
+  background-color: #fbaf4b;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -314,13 +314,12 @@ nav ul li a {
 #trombinoscope {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 30px;
+  row-gap: 40px;
+  column-gap: 30px;
   margin-top: 140px;
-  margin-left: 50px;
-  margin-right: 50px;
-
-
-}
+  margin-bottom: 100px;
+ 
+  }
 
 @media screen and (min-width : 768px) {
   #trombinoscope {
@@ -349,17 +348,15 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: auto;
+  margin-left: auto;
  
 }
 
 .profileName2 {
   display: none;
-  
-  
   background-color: #1212123e;
 }
-  /*background: linear-gradient(90deg, #12121299, #fbb04ccc);
-
 
 /*hardSkills*/
 .hardSkills2 {
