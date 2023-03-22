@@ -498,9 +498,22 @@ for (let wilder of wilders) {
 
 /* DARK MODE */
 
+let statusMode = localStorage.getItem("isDarkMod")
+if(statusMode === null) localStorage.setItem("isDarkMod","0")
+else if(statusMode === "1"){
+    document.body.classList.add('dark');
+}
+
+   // si l'utilisateur est en light mode, j'ajoute la classe dark et je modifie le local storage en dark
+    // sinon, j'enleve la classe dark et je modifie le local storage en light
 const checkbox = document.getElementById('checkbox');
 
-checkbox.addEventListener('change', () => {
-    document.body.classList.toggle('dark');
-});
+checkbox.addEventListener('change'), () => {
 
+if(statusMode === "1")
+{ document.body.classList.add('dark');
+} else(statusMode === null) 
+{
+    document.body.classList.remove('dark');
+}
+}
