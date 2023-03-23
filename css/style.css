@@ -49,10 +49,11 @@
   
   
   .logosite{
-    width: 50%;
-    height:50%;
+    width: 200px;
+    height:200px;
     display: flex;
-    align-items: center;
+
+    
   }
   
   .title{
@@ -416,7 +417,7 @@ height: 36px;
   }
   @media screen and (min-width: 768px) {
     .landing {
-      top: 20%;
+      top: 15%;
     }
     #name {
       font-size: 60px;
@@ -605,12 +606,12 @@ height: 36px;
     position: absolute;
     width: 140px;
     left: calc(50% - 70%);
-    bottom: 125%;
+    top: 100%;
     text-align: center;
     box-sizing: border-box;
     content:attr(data-tooltip);
-    color: #F8EEE1;
-    background-color: #273E47;
+    color: #273E47;
+    background-color: #FBB04C;
     padding : 8px;
     border-radius: 10px;
     font-size: 0.9em;
@@ -775,7 +776,7 @@ height: 36px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
-    column-gap: 30px;
+    column-gap: 10px;
     margin-top: 140px;
     margin-bottom: 100px;
    
