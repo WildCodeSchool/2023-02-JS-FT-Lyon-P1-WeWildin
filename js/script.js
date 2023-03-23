@@ -635,6 +635,7 @@ for (let i = 0; i < hardSkillsGlobalArray.length; i++) {
         let newHardSkill = document.createElement("img");
         newHardSkill.src = "assets/" + language.toLowerCase() + "-svg.svg";
         newHardSkill.classList.add("languageIcons");
+        newHardSkill.classList.add("hardSkillsFilter");
         hardSkillsFilterBlock.appendChild(newHardSkill);
 
         newHardSkill.addEventListener("click", function () {
