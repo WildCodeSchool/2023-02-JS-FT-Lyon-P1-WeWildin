@@ -229,15 +229,17 @@ const teodor = {
 const wilders = [lilian, marco, françois, lucie, aurelie, anthony, vanessa, marcelo, guillaume, jawad, vivian, yann, pierre, teodor];
 
 for (let wilder of wilders) {
-    wilder.identifier = wilder.firstName + wilder.lastName;
+    wilder.identifier = wilder.lastName + wilder.firstName;
 };
 
 let tempWildersArray = [];
 function refillTempArray() {
     for (let wilder of wilders) {
-        tempWildersArray.push(wilder.identifier);
-    };
-}
+        if (tempWildersArray.includes(wilder.identifier) === false)
+            tempWildersArray.push(wilder.identifier);
+    }
+    tempWildersArray.sort();
+};
 refillTempArray();
 
 let trombinoscope = document.getElementById("trombinoscope");
@@ -247,6 +249,7 @@ let activeProfile = false;
 //Cette boucle crée dynamiquement toutes les div des wilders au chargement de la page.
 
 function generateWilders() {
+    tempWildersArray.sort();
     for (let wilder of wilders) {
         if (tempWildersArray.includes(wilder.identifier)) {
 
@@ -528,55 +531,6 @@ for (let wilder of wilders) {
 }
 softSkillsGlobalArray.sort();
 
-
-
-let menu = document.querySelector(".softSkillsFilter");
-
-let filteredSoftSkills = [];
-
-for (let i = 0; i < softSkillsGlobalArray.length; i++) {
-    let newSoftSkill = document.createElement("li");
-    newSoftSkill.classList.add("softSkillFilter");
-    newSoftSkill.setAttribute("id", "softSkill" + i)
-    newSoftSkill.innerText = softSkillsGlobalArray[i];
-    menu.appendChild(newSoftSkill);
-
-    // création d'un eventListener pour générer dynamiquement le trombi en fonction des soft skills sélectionnées.
-
-    newSoftSkill.addEventListener("click", function () {
-        tempWildersArray = [];
-        let cardsToRemove = document.querySelectorAll(".wilderCard");
-        for (let i of cardsToRemove) {
-            i.remove();
-        };
-        newSoftSkill.classList.toggle("selected");
-        if (newSoftSkill.classList.contains("selected") === true) {
-            filteredSoftSkills.push(softSkillsGlobalArray[i]);
-        } else {
-            let softSkillIndex = filteredSoftSkills.indexOf(softSkillsGlobalArray[i]);
-            filteredSoftSkills.splice(softSkillIndex, 1);
-        }
-        for (let wilder of wilders) {
-            let count = 0;
-            for (let softSkill in filteredSoftSkills) {
-
-                if (wilder.softSkills.includes(filteredSoftSkills[softSkill])) {
-                    count++;
-                }
-                if (count === filteredSoftSkills.length) {
-                    tempWildersArray.push(wilder.identifier);
-                }
-            }
-        }
-        if (filteredSoftSkills.length === 0) {
-            refillTempArray();
-            tempWildersArray.sort();
-        }
-        generateWilders();
-    });
-}
-
-
 // Création d'un array pour lister toutes les hard skills contenues dans les objets wilder.
 
 let hardSkillsGlobalArray = [];
@@ -590,7 +544,73 @@ for (let wilder of wilders) {
 }
 hardSkillsGlobalArray.sort();
 
+
+let menu = document.querySelector(".softSkillsFilter");
+
+let filteredSoftSkills = [];
 let filteredHardSkills = [];
+
+for (let i = 0; i < softSkillsGlobalArray.length; i++) {
+    let newSoftSkill = document.createElement("li");
+    newSoftSkill.classList.add("softSkillFilter");
+    newSoftSkill.setAttribute("id", "softSkill" + i)
+    newSoftSkill.innerText = softSkillsGlobalArray[i];
+    menu.appendChild(newSoftSkill);
+
+    // création d'un eventListener pour générer dynamiquement le trombi en fonction des soft skills sélectionnées.
+
+    newSoftSkill.addEventListener("click", function () {
+        console.log("click")
+        refillTempArray();
+        console.log(tempWildersArray);
+        let cardsToRemove = document.querySelectorAll(".wilderCard");
+        for (let i of cardsToRemove) {
+            i.remove();
+        };
+
+        newSoftSkill.classList.toggle("selected");
+        if (newSoftSkill.classList.contains("selected") === true) {
+            filteredSoftSkills.push(softSkillsGlobalArray[i]);
+        } else {
+            let softSkillIndex = filteredSoftSkills.indexOf(softSkillsGlobalArray[i]);
+            filteredSoftSkills.splice(softSkillIndex, 1);
+        }
+
+        for (let softSkill in filteredSoftSkills) {
+            for (let wilder of wilders) {
+                console.log(`${wilder.firstName} has ${filteredSoftSkills[softSkill]} : ` + wilder.softSkills.includes(filteredSoftSkills[softSkill]))
+                console.log(`${wilder.firstName} has ${wilder.softSkills}`)
+                if (wilder.softSkills.includes(filteredSoftSkills[softSkill]) === false && tempWildersArray.includes(wilder.identifier)) {
+                    let wilderIndex = tempWildersArray.indexOf(wilder.identifier);
+                    tempWildersArray.splice(wilderIndex, 1);
+                }
+                console.log(tempWildersArray)
+            }
+        };
+
+        for (let hardSkill in filteredHardSkills) {
+            for (let wilder of wilders) {
+                console.log(`${wilder.firstName} has ${filteredHardSkills[hardSkill]} : ` + wilder.hardSkills.includes(filteredSoftSkills[hardSkill]))
+                console.log(`${wilder.firstName} has ${wilder.hardSkills}`)
+                if (wilder.hardSkills.includes(filteredHardSkills[hardSkill]) === false && tempWildersArray.includes(wilder.identifier)) {
+                    let wilderIndex = tempWildersArray.indexOf(wilder.identifier);
+                    tempWildersArray.splice(wilderIndex, 1);
+                }
+                console.log(tempWildersArray)
+            }
+        };
+
+        if (filteredSoftSkills.length === 0 && filteredHardSkills.length === 0) {
+            refillTempArray();
+        }
+        console.log(filteredHardSkills)
+        console.log(filteredSoftSkills)
+        console.log(tempWildersArray);
+        generateWilders();
+    })
+}
+
+
 
 let hardSkillsFilterBlock = document.createElement("div");
 hardSkillsFilterBlock.classList.add("hardSkillFilterBlock");
@@ -614,15 +634,18 @@ for (let i = 0; i < hardSkillsGlobalArray.length; i++) {
     function createLanguageIcon(language) {
         let newHardSkill = document.createElement("img");
         newHardSkill.src = "assets/" + language.toLowerCase() + "-svg.svg";
-        newHardSkill.classList.add("languageIcons2");
+        newHardSkill.classList.add("languageIcons");
         hardSkillsFilterBlock.appendChild(newHardSkill);
 
         newHardSkill.addEventListener("click", function () {
-            tempWildersArray = [];
+            console.log("click")
+            refillTempArray();
+            console.log(tempWildersArray);
             let cardsToRemove = document.querySelectorAll(".wilderCard");
             for (let i of cardsToRemove) {
                 i.remove();
             };
+
             newHardSkill.classList.toggle("selected");
             if (newHardSkill.classList.contains("selected") === true) {
                 filteredHardSkills.push(hardSkillsGlobalArray[i]);
@@ -630,26 +653,41 @@ for (let i = 0; i < hardSkillsGlobalArray.length; i++) {
                 let hardSkillIndex = filteredHardSkills.indexOf(hardSkillsGlobalArray[i]);
                 filteredHardSkills.splice(hardSkillIndex, 1);
             }
-            for (let wilder of wilders) {
-                let count = 0;
-                for (let hardSkill in filteredHardSkills) {
-                    if (wilder.hardSkills.includes(filteredHardSkills[hardSkill])) {
-                        count++;
+
+            for (let hardSkill in filteredHardSkills) {
+                for (let wilder of wilders) {
+                    console.log(`${wilder.firstName} has ${filteredHardSkills[hardSkill]} : ` + wilder.hardSkills.includes(filteredSoftSkills[hardSkill]))
+                    console.log(`${wilder.firstName} has ${wilder.hardSkills}`)
+                    if (wilder.hardSkills.includes(filteredHardSkills[hardSkill]) === false && tempWildersArray.includes(wilder.identifier)) {
+                        let wilderIndex = tempWildersArray.indexOf(wilder.identifier);
+                        tempWildersArray.splice(wilderIndex, 1);
                     }
-                    if (count === filteredHardSkills.length) {
-                        tempWildersArray.push(wilder.identifier);
-                    }
+                    console.log(tempWildersArray)
                 }
-            }
-            if (filteredHardSkills.length === 0) {
+            };
+
+            for (let softSkill in filteredSoftSkills) {
+                for (let wilder of wilders) {
+                    console.log(`${wilder.firstName} has ${filteredSoftSkills[softSkill]} : ` + wilder.softSkills.includes(filteredSoftSkills[softSkill]))
+                    console.log(`${wilder.firstName} has ${wilder.softSkills}`)
+                    if (wilder.softSkills.includes(filteredSoftSkills[softSkill]) === false && tempWildersArray.includes(wilder.identifier)) {
+                        let wilderIndex = tempWildersArray.indexOf(wilder.identifier);
+                        tempWildersArray.splice(wilderIndex, 1);
+                    }
+                    console.log(tempWildersArray)
+                }
+            };
+
+
+            if (filteredSoftSkills.length === 0 && filteredHardSkills.length === 0) {
                 refillTempArray();
-                tempWildersArray.sort();
             }
+            console.log(filteredHardSkills)
+            console.log(filteredSoftSkills)
+            console.log(tempWildersArray);
             generateWilders();
-        });
+        })
+    }
+};
+menu.appendChild(hardSkillsFilterBlock);
 
-
-
-    };
-    menu.appendChild(hardSkillsFilterBlock);
-}
