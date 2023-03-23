@@ -386,10 +386,16 @@ for (let wilder of wilders) {
             let wildersHardSkills = document.createElement("div");
             wildersHardSkills.classList.add("hardSkills");
             function createLanguageIcon(language) {
+                let hardSkillSpan = document.createElement("span");
+                hardSkillSpan.setAttribute("data-tooltip", language);
+                hardSkillSpan.classList.add("tooltip");
+                wildersHardSkills.appendChild(hardSkillSpan);
                 let hardSkillsPart = document.createElement("img");
                 hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
                 hardSkillsPart.classList.add("languageIcons");
+                hardSkillsPart.classList.add(language.toLowerCase());
                 wildersHardSkills.appendChild(hardSkillsPart);
+                hardSkillSpan.appendChild(hardSkillsPart);
             };
             hardSkillsBlock.appendChild(wildersHardSkills);
 
