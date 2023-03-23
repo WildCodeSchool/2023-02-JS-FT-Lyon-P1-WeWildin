@@ -46,11 +46,19 @@ header {
   align-items: center;
 }
 
-.title {
-  width: 100%;
-  text-align: center;
+
+.logosite{
+  width: 50%;
+  height:50%;
+  display: flex;
+  align-items: center;
 }
 
+.title{
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+}
 .button {
   display: flex;
 }
@@ -175,7 +183,7 @@ header {
 margin-left: auto;
 margin-right: auto;
 left: 0;
-top: 20%;
+top: 0%;
 right: 0;
 text-align: center;}
 
@@ -236,6 +244,9 @@ font-size: 32px;
   animation-delay: 4.3s;
 }
 
+.logoaccueil{
+  margin-top: 20px;
+}
 /* BUTTON */
 
 #hover-1 {
@@ -381,14 +392,16 @@ button {
 .hardSkillsBlock {
   padding: 1em;
   margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
 }
 
 .hardSkills {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: nowrap;
-  list-style-type: none;
+
 }
 
 .languageIcons {
@@ -396,6 +409,38 @@ button {
   height: 64px;
 }
 
+/*infobulles*/
+[data-tooltip]{
+  position:relative;
+  cursor : default;
+}
+
+[data-tooltip]::after{
+  position: absolute;
+  width: 140px;
+  left: calc(50% - 70%);
+  bottom: 125%;
+  text-align: center;
+  box-sizing: border-box;
+  content:attr(data-tooltip);
+  color: #F8EEE1;
+  background-color: #273E47;
+  padding : 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  font-weight: bold;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.2s;
+}
+[data-tooltip]:hover::after{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0)
+}
+  
 /* BIO, PROJETS et OBJECTIFS */
 
 .profileDivBottom {
@@ -614,3 +659,4 @@ nav ul li a {
   color: #F8EEE1;
   border-radius: 5px;
 }
+
