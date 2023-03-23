@@ -279,6 +279,8 @@ function generateWilders() {
                 let hardSkillsPart = document.createElement("img");
                 hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
                 hardSkillsPart.classList.add("languageIcons2");
+                hardSkillsPart.classList.add(language.toLowerCase());
+                wildersHardSkills2.appendChild(hardSkillsPart);
                 wildersHardSkills2.appendChild(hardSkillsPart);
             };
             newWilder.appendChild(wildersHardSkills2);
@@ -396,10 +398,14 @@ function generateWilders() {
                     let wildersHardSkills = document.createElement("div");
                     wildersHardSkills.classList.add("hardSkills");
                     function createLanguageIcon(language) {
+                        let hardSkillSpan = document.createElement("span");
+                        hardSkillSpan.setAttribute("data-tooltip", language);
+                        hardSkillSpan.classList.add("tooltip");
+                        wildersHardSkills.appendChild(hardSkillSpan);
                         let hardSkillsPart = document.createElement("img");
                         hardSkillsPart.src = "assets/" + language.toLowerCase() + "-svg.svg";
                         hardSkillsPart.classList.add("languageIcons");
-                        wildersHardSkills.appendChild(hardSkillsPart);
+                        hardSkillSpan.appendChild(hardSkillsPart);
                     };
                     hardSkillsBlock.appendChild(wildersHardSkills);
 
@@ -511,7 +517,7 @@ function generateWilders() {
 generateWilders();
 
 
-/* DARK MODE */
+//*DARK MODE*//
 
 const checkbox = document.getElementById('checkbox');
 
@@ -545,7 +551,7 @@ for (let wilder of wilders) {
 hardSkillsGlobalArray.sort();
 
 
-let menu = document.querySelector(".softSkillsFilter");
+let menu = document.querySelector(".menu__box");
 
 let filteredSoftSkills = [];
 let filteredHardSkills = [];
