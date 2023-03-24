@@ -78,8 +78,11 @@ body.dark {
 }
 
 .title {
+  margin: 0;
+  width: 200px;
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 .button {
@@ -100,6 +103,7 @@ body.dark {
   justify-content: space-between;
   padding: 5px;
   transform: scale(1);
+  align-self: flex-end;
 }
 
 .ball {
