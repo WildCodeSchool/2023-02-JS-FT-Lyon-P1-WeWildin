@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "validate index": "html-validator ./index.html",
+    "validate index": "html-validator ./index2.html",
     "validate mentions": "html-validator ./mentions-legales.html",
     "validate": " html-validator docs/*.html flyer.html ",
     "one-folder": " html-validator docs ",
