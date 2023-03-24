@@ -76,6 +76,7 @@ header a {
   display: flex;
 }
 
+
 /*MENU BURGER*/
 
 #menu__toggle {
@@ -161,9 +162,6 @@ header a {
   background-color: #CFD8DC;
 }
 
-
-/*MENU BURGER*/
-
 @media screen and (min-width: 768px) {
   #menu__toggle {
     opacity: 0;
@@ -248,7 +246,6 @@ header a {
   }
 }
 
-
 .softSkillFilter.selected {
   box-shadow: inset 2px 2px 10px var(--third-color);
   text-align: center;
@@ -265,10 +262,22 @@ header a {
   justify-content: center;
 }
 
-.softSkillFilter:hover {
-  background-color: var(--secondary-color);
-  transition: var(--bg-transition);
+@media screen and (min-width: 768px) {
+  .hardSkillsFilter:hover {
+    border: 1px solid var(--third-color);
+  }
+
+  .softSkillFilter:hover {
+    background-color: var(--secondary-color);
+    transition: var(--bg-transition);
+  }
+
+  .hardSkillsFilter:hover {
+    border: 1px solid var(--third-color);
+  }
 }
+
+
 
 .softSkillsFilter {
   display: none;
@@ -294,9 +303,8 @@ header a {
   opacity: 0.5;
 }
 
-.hardSkillsFilter:hover {
-  border: 1px solid var(--third-color);
-}
+
+/* BOUTON DARK MODE */
 
 .checkbox {
   opacity: 0;
@@ -526,7 +534,7 @@ header a {
   }
 }
 
-/* BUTTON */
+/* BUTTON ENTREE SITE */
 
 #hover-1 {
   background: linear-gradient(var(--third-color) 0 0) left / var(--p, 0) no-repeat;
@@ -555,6 +563,102 @@ button {
   button {
     font-size: 5rem;
   }
+}
+
+/*MISE EN PAGE TROMBI */
+#trombinoscope {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 30px;
+  margin-top: 140px;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width : 470px) {
+  #trombinoscope {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width : 768px) and (max-width: 950px) {
+  #trombinoscope {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width : 950px) {
+  #trombinoscope {
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .softSkillFilter {
+    min-height: 1.2em;
+    font-size: 1em;
+  }
+
+}
+
+/*mise en page cards dans trombi*/
+.wilderPic {
+  max-width: 191.61px;
+  height: 360px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(188, 182, 182);
+  transition: var(--bg-transition), var(--color-transition);
+}
+
+.wilderCard:hover .wilderPic {
+  z-index: 3;
+  transform: scale(1.2);
+  background-color: var(--third-color);
+  transition: transform .5s ease-in;
+}
+
+.wilderCard {
+  max-width: 191.61px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.profileName2 {
+  display: none;
+  background-color: #1212123e;
+}
+
+/*hardSkills*/
+.hardSkills2 {
+  z-index: 4;
+  display: flex;
+  position: relative;
+  top: -70px;
+  background-color: #1212123e;
+  border-radius: 5px;
+}
+
+.languageIcons2 {
+  height: 35px;
+
+}
+
+/*mise en page name sur card*/
+.wilderCard:hover .profileName2 {
+  z-index: 4;
+  display: flex;
+  position: relative;
+  text-align: center;
+  top: -70px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+  color: #F8EEE1;
+  border-radius: 5px;
 }
 
 /* PAGE DE PROFIL */
@@ -805,12 +909,6 @@ button {
   border-color: #813f02;
 }
 
-/* @media screen and (min-width: 768px) {
-  .container {
-    width: 70%;
-    height: 425px;
-  }
-} */
 
 /* Footer */
 
@@ -871,101 +969,4 @@ nav ul li a {
   /* margin-left: 12rem; */
   padding-right: 1rem;
   white-space: pre;
-}
-
-
-/*Mise en page trombi*/
-#trombinoscope {
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 30px;
-  column-gap: 30px;
-  margin-top: 140px;
-  margin-bottom: 100px;
-}
-
-@media screen and (max-width : 470px) {
-  #trombinoscope {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (min-width : 768px) and (max-width: 950px) {
-  #trombinoscope {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (min-width : 950px) {
-  #trombinoscope {
-
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  .softSkillFilter {
-    min-height: 1.2em;
-    font-size: 1em;
-  }
-
-}
-
-/*mise en page cards dans trombi*/
-.wilderPic {
-  max-width: 191.61px;
-  height: 360px;
-  background-color: var(--main-color);
-  border-radius: 10px;
-  box-shadow: 10px 5px 5px rgb(188, 182, 182);
-  transition: var(--bg-transition), var(--color-transition);
-}
-
-.wilderCard:hover .wilderPic {
-  z-index: 3;
-  transform: scale(1.2);
-  background-color: var(--third-color);
-  transition: transform .5s ease-in;
-}
-
-.wilderCard {
-  max-width: 191.61px;
-  height: 360px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.profileName2 {
-  display: none;
-  background-color: #1212123e;
-}
-
-/*hardSkills*/
-.hardSkills2 {
-  z-index: 4;
-  display: flex;
-  position: relative;
-  top: -70px;
-  background-color: #1212123e;
-  border-radius: 5px;
-}
-
-.languageIcons2 {
-  height: 35px;
-
-}
-
-/*mise en page name sur card*/
-.wilderCard:hover .profileName2 {
-  z-index: 4;
-  display: flex;
-  position: relative;
-  text-align: center;
-  top: -70px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 24px;
-  color: #F8EEE1;
-  border-radius: 5px;
 }
